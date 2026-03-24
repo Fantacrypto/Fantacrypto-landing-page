@@ -356,33 +356,36 @@ function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="https://fantacryptoleague.io" target="_blank" rel="noopener noreferrer"
+            <button
+              onClick={() => window.open("https://fantacryptoleague.io", "_blank", "noopener,noreferrer")}
               style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "16px 36px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900,
                 fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
-                textDecoration: "none", transition: "all 0.3s",
-                boxShadow: "0 4px 24px #1DB89A44",
+                border: "none", transition: "all 0.3s",
+                boxShadow: "0 4px 24px #1DB89A44", cursor: "pointer",
               }}
               onMouseEnter={e => { e.target.style.transform = "translateY(-3px)"; e.target.style.boxShadow = "0 12px 32px #1DB89A55"; }}
               onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 4px 24px #1DB89A44"; }}
             >
               Entra in Leghe Fantacrypto
-            </a>
-            <a href="#partner-form"
+            </button>
+            <button
+              onClick={() => document.getElementById("partner-form").scrollIntoView({ behavior: "smooth", block: "start" })}
               style={{
                 border: "1px solid #1DB89A55", color: "#1DB89A",
                 padding: "16px 36px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
                 fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
                 textDecoration: "none", transition: "all 0.3s",
+                background: "transparent", cursor: "pointer",
               }}
               onMouseEnter={e => { e.target.style.background = "#1DB89A11"; e.target.style.borderColor = "#1DB89A"; }}
               onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "#1DB89A55"; }}
             >
               Vuoi diventare Partner?
-            </a>
+            </button>
           </div>
 
           {/* Stats */}
