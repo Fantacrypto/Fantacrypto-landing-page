@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // ─── SEO HEAD (inject via Helmet or index.html in production) ───────────────
 // Title: Fantacrypto League | Il Fantasy Game sulle Criptovalute
@@ -356,7 +356,7 @@ function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="#cta" id="cta"
+            <a href="https://fantacryptoleague.io" target="_blank" rel="noopener noreferrer"
               style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "16px 36px", borderRadius: 6,
@@ -368,9 +368,9 @@ function Hero() {
               onMouseEnter={e => { e.target.style.transform = "translateY(-3px)"; e.target.style.boxShadow = "0 12px 32px #1DB89A55"; }}
               onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 4px 24px #1DB89A44"; }}
             >
-              Inizia a Giocare
+              Entra in Leghe Fantacrypto
             </a>
-            <a href="#chi-siamo"
+            <a href="#partner-form"
               style={{
                 border: "1px solid #1DB89A55", color: "#1DB89A",
                 padding: "16px 36px", borderRadius: 6,
@@ -381,7 +381,7 @@ function Hero() {
               onMouseEnter={e => { e.target.style.background = "#1DB89A11"; e.target.style.borderColor = "#1DB89A"; }}
               onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "#1DB89A55"; }}
             >
-              Scopri di più
+              Vuoi diventare Partner?
             </a>
           </div>
 
@@ -721,6 +721,128 @@ function Monetizzazione() {
   );
 }
 
+// ─── PARTNER FORM ─────────────────────────────────────────────────────────────
+function PartnerForm() {
+  const [form, setForm] = React.useState({ nome: "", email: "", azienda: "", messaggio: "" });
+  const [sent, setSent] = React.useState(false);
+
+  const inputStyle = {
+    width: "100%", padding: "12px 16px",
+    background: "#061c18", border: "1px solid #1DB89A33",
+    borderRadius: 8, color: "#fff",
+    fontFamily: "'DM Sans', sans-serif", fontSize: 15,
+    outline: "none", boxSizing: "border-box",
+    transition: "border-color 0.2s",
+  };
+
+  const labelStyle = {
+    fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
+    fontSize: 13, color: "#1DB89A", letterSpacing: "0.1em",
+    textTransform: "uppercase", display: "block", marginBottom: 6,
+  };
+
+  const [error, setError] = React.useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(false);
+    try {
+      const res = await fetch("https://formspree.io/f/xqegzqzr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          nome: form.nome,
+          email: form.email,
+          azienda: form.azienda,
+          messaggio: form.messaggio,
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
+  };
+
+  if (sent) return (
+    <div style={{ textAlign: "center", padding: "32px 0" }}>
+      <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
+      <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 20, color: "#1DB89A" }}>
+        Grazie! Ti ricontattiamo presto.
+      </p>
+    </div>
+  );
+
+  return (
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div>
+        <label style={labelStyle}>Nome *</label>
+        <input
+          type="text" required placeholder="Il tuo nome"
+          value={form.nome}
+          onChange={e => setForm({ ...form, nome: e.target.value })}
+          style={inputStyle}
+          onFocus={e => e.target.style.borderColor = "#1DB89A"}
+          onBlur={e => e.target.style.borderColor = "#1DB89A33"}
+        />
+      </div>
+      <div>
+        <label style={labelStyle}>Email *</label>
+        <input
+          type="email" required placeholder="La tua email"
+          value={form.email}
+          onChange={e => setForm({ ...form, email: e.target.value })}
+          style={inputStyle}
+          onFocus={e => e.target.style.borderColor = "#1DB89A"}
+          onBlur={e => e.target.style.borderColor = "#1DB89A33"}
+        />
+      </div>
+      <div>
+        <label style={labelStyle}>Azienda</label>
+        <input
+          type="text" placeholder="Nome azienda o progetto"
+          value={form.azienda}
+          onChange={e => setForm({ ...form, azienda: e.target.value })}
+          style={inputStyle}
+          onFocus={e => e.target.style.borderColor = "#1DB89A"}
+          onBlur={e => e.target.style.borderColor = "#1DB89A33"}
+        />
+      </div>
+      <div>
+        <label style={labelStyle}>Messaggio</label>
+        <textarea
+          rows={4} placeholder="Raccontaci la tua proposta..."
+          value={form.messaggio}
+          onChange={e => setForm({ ...form, messaggio: e.target.value })}
+          style={{ ...inputStyle, resize: "vertical", minHeight: 100 }}
+          onFocus={e => e.target.style.borderColor = "#1DB89A"}
+          onBlur={e => e.target.style.borderColor = "#1DB89A33"}
+        />
+      </div>
+      {error && (
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#ff6b6b", margin: "0 0 8px" }}>
+          Errore nell'invio. Riprova o scrivici a info@fantacrypto.io
+        </p>
+      )}
+      <button type="submit" style={{
+        background: "#1DB89A", color: "#041410",
+        padding: "14px 32px", borderRadius: 8, border: "none",
+        fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900,
+        fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase",
+        cursor: "pointer", transition: "all 0.2s", alignSelf: "flex-start",
+      }}
+        onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }}
+        onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}
+      >
+        Invia Richiesta →
+      </button>
+    </form>
+  );
+}
+
 // ─── PARTNERSHIP ──────────────────────────────────────────────────────────────
 function Partnership() {
   return (
@@ -765,6 +887,29 @@ function Partnership() {
               {name}
             </div>
           ))}
+        </div>
+
+        {/* Form partner */}
+        <div id="partner-form" style={{
+          background: "#0a1f1c",
+          border: "1px solid #1DB89A33",
+          borderRadius: 16,
+          padding: "48px 40px",
+          maxWidth: 640,
+          margin: "0 auto 64px",
+          textAlign: "left",
+        }}>
+          <h3 style={{
+            fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900,
+            fontSize: 28, color: "#fff", textTransform: "uppercase",
+            margin: "0 0 8px", letterSpacing: "0.05em",
+          }}>
+            DIVENTA <span style={{ color: "#1DB89A" }}>PARTNER</span>
+          </h3>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#5a8a85", marginBottom: 32 }}>
+            Compila il form e ti ricontattiamo entro 48 ore.
+          </p>
+          <PartnerForm />
         </div>
 
         {/* CTA finale */}
