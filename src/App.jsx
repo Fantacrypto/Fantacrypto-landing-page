@@ -114,13 +114,20 @@ const TICKER_ITEMS = [
   "DOGE +3.2%", "XRP +1.1%", "AVAX +4.7%", "MATIC +2.0%", "LINK +1.5%",
 ];
 
+// Altezze header: ticker 34px + navbar 64px = 98px totali
+const TICKER_HEIGHT = 34;
+const NAV_HEIGHT = 64;
+const HEADER_HEIGHT = TICKER_HEIGHT + NAV_HEIGHT;
+
 function Ticker() {
   return (
     <div style={{
       background: "#0a2e2a",
       borderBottom: "1px solid #1DB89A22",
       overflow: "hidden",
-      padding: "8px 0",
+      height: TICKER_HEIGHT,
+      display: "flex",
+      alignItems: "center",
       fontSize: "12px",
       fontFamily: "'Space Mono', monospace",
       color: "#1DB89A",
@@ -155,9 +162,8 @@ function Navbar() {
 
   return (
     <header role="banner" style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-      background: scrolled ? "rgba(8,28,25,0.96)" : "transparent",
-      backdropFilter: scrolled ? "blur(16px)" : "none",
+      background: scrolled ? "rgba(8,28,25,0.96)" : "rgba(4,20,16,0.85)",
+      backdropFilter: "blur(16px)",
       borderBottom: scrolled ? "1px solid #1DB89A22" : "none",
       transition: "all 0.3s ease",
       padding: "0 24px",
@@ -165,17 +171,30 @@ function Navbar() {
       <nav role="navigation" aria-label="Navigazione principale" style={{
         maxWidth: 1200, margin: "0 auto",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        height: 72,
+        height: NAV_HEIGHT,
       }}>
-        {/* Logo */}
-        <a href="#hero" aria-label="Fantacrypto League - Home" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-          <CoinLogo size={44} />
-          <div>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em", lineHeight: 1.1 }}>
-              FANTACRYPTO
-            </div>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em" }}>
-              LEAGUE.IO
+        {/* Logo — usa FantacryptoWhite.svg se presente, altrimenti testo */}
+        <a href="#hero" aria-label="Fantacrypto League - Home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <img
+            src="/FantacryptoWhite.svg"
+            alt="Fantacrypto League"
+            height="44"
+            style={{ height: 44, width: "auto", display: "block" }}
+            onError={e => {
+              e.target.style.display = "none";
+              e.target.nextSibling.style.display = "flex";
+            }}
+          />
+          {/* Fallback testo se SVG non trovato */}
+          <div style={{ display: "none", alignItems: "center", gap: 10 }}>
+            <CoinLogo size={40} />
+            <div>
+              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em", lineHeight: 1.1 }}>
+                FANTACRYPTO
+              </div>
+              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em" }}>
+                LEAGUE.IO
+              </div>
             </div>
           </div>
         </a>
@@ -271,7 +290,7 @@ function Hero() {
         minHeight: "100vh",
         background: "linear-gradient(135deg, #041410 0%, #0a2e2a 40%, #0D4F4A 75%, #1DB89A 100%)",
         display: "flex", alignItems: "center",
-        padding: "120px 24px 80px",
+        padding: "60px 24px 80px",
         position: "relative",
         overflow: "hidden",
       }}>
@@ -958,8 +977,14 @@ export default function App() {
         Salta al contenuto principale
       </a>
 
-      <Ticker />
-      <Navbar />
+      {/* Header fisso: ticker + navbar in unico wrapper */}
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
+        <Ticker />
+        <Navbar />
+      </div>
+
+      {/* Spacer per compensare l'header fisso */}
+      <div style={{ height: HEADER_HEIGHT }} />
 
       <main id="main-content">
         <Hero />
