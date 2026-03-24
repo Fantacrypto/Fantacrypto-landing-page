@@ -218,7 +218,7 @@ function Navbar() {
             </li>
           ))}
           <li>
-            <a href="#cta" style={{
+            <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer" style={{
               background: "#1DB89A", color: "#041410",
               padding: "10px 24px", borderRadius: 6,
               fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
@@ -265,7 +265,8 @@ function Navbar() {
               </li>
             ))}
             <li>
-              <a href="#cta" onClick={() => setMenuOpen(false)} style={{
+              <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)} style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "12px 28px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
@@ -356,36 +357,33 @@ function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <button
-              onClick={() => window.open("https://fantacryptoleague.io", "_blank", "noopener,noreferrer")}
+            <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer"
               style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "16px 36px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900,
                 fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
-                border: "none", transition: "all 0.3s",
-                boxShadow: "0 4px 24px #1DB89A44", cursor: "pointer",
+                textDecoration: "none", display: "inline-block", transition: "all 0.3s",
+                boxShadow: "0 4px 24px #1DB89A44",
               }}
-              onMouseEnter={e => { e.target.style.transform = "translateY(-3px)"; e.target.style.boxShadow = "0 12px 32px #1DB89A55"; }}
-              onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 4px 24px #1DB89A44"; }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 32px #1DB89A55"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px #1DB89A44"; }}
             >
               Entra in Leghe Fantacrypto
-            </button>
-            <button
-              onClick={() => document.getElementById("partner-form").scrollIntoView({ behavior: "smooth", block: "start" })}
+            </a>
+            <a href="#partner-form"
               style={{
                 border: "1px solid #1DB89A55", color: "#1DB89A",
                 padding: "16px 36px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
                 fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
-                textDecoration: "none", transition: "all 0.3s",
-                background: "transparent", cursor: "pointer",
+                textDecoration: "none", display: "inline-block", transition: "all 0.3s",
               }}
-              onMouseEnter={e => { e.target.style.background = "#1DB89A11"; e.target.style.borderColor = "#1DB89A"; }}
-              onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "#1DB89A55"; }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1DB89A11"; e.currentTarget.style.borderColor = "#1DB89A"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#1DB89A55"; }}
             >
               Vuoi diventare Partner?
-            </button>
+            </a>
           </div>
 
           {/* Stats */}
