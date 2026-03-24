@@ -404,13 +404,6 @@ function Hero() {
         <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center" }}>
           <div style={{ animation: "coinFloat 4s ease-in-out infinite", filter: "drop-shadow(0 30px 60px #1DB89A44)" }}>
             <svg width="320" height="320" viewBox="0 0 200 200" fill="none" aria-label="Fantacrypto coin">
-              <ellipse cx="100" cy="165" rx="60" ry="16" fill="#0a2e2a" opacity="0.8" />
-              <circle cx="100" cy="98" r="78" fill="#082820" />
-              <circle cx="100" cy="95" r="78" fill="url(#coinGrad)" />
-              <circle cx="100" cy="95" r="66" fill="url(#coinInner)" />
-              <circle cx="100" cy="95" r="58" fill="none" stroke="#0D4F4A" strokeWidth="4" />
-              <path d="M82 68 L118 68 L118 78 L106 78 L106 112 L118 112 L118 122 L82 122 L82 112 L90 112 L90 104 L72 104 L72 86 L90 86 L90 78 L82 78 Z" fill="white" />
-              <path d="M90 86 L106 86 L110 90 L110 100 L106 104 L90 104 Z" fill="#1DB89A" />
               <defs>
                 <radialGradient id="coinGrad" cx="40%" cy="35%">
                   <stop offset="0%" stopColor="#2ecfae" />
@@ -421,7 +414,23 @@ function Hero() {
                   <stop offset="0%" stopColor="#25c9a3" />
                   <stop offset="100%" stopColor="#129078" />
                 </radialGradient>
+                <clipPath id="coinClip">
+                  <circle cx="100" cy="95" r="54" />
+                </clipPath>
               </defs>
+              <ellipse cx="100" cy="165" rx="60" ry="16" fill="#0a2e2a" opacity="0.8" />
+              <circle cx="100" cy="98" r="78" fill="#082820" />
+              <circle cx="100" cy="95" r="78" fill="url(#coinGrad)" />
+              <circle cx="100" cy="95" r="66" fill="url(#coinInner)" />
+              <circle cx="100" cy="95" r="58" fill="none" stroke="#0D4F4A" strokeWidth="4" />
+              {/* Simbolo brand — usa PNG caricato in /public */}
+              <image
+                href="/fc-symbol.png"
+                x="38" y="33"
+                width="124" height="124"
+                clipPath="url(#coinClip)"
+                preserveAspectRatio="xMidYMid meet"
+              />
             </svg>
           </div>
         </div>
