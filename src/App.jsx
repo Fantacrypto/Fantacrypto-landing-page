@@ -301,6 +301,7 @@ function Hero() {
         position: "absolute", inset: 0, opacity: 0.06,
         backgroundImage: "linear-gradient(#1DB89A 1px, transparent 1px), linear-gradient(90deg, #1DB89A 1px, transparent 1px)",
         backgroundSize: "60px 60px",
+        pointerEvents: "none",
       }} aria-hidden="true" />
 
       {/* Glow */}
