@@ -357,19 +357,6 @@ function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="https://www.fantacryptoleague.io/" style={{
-              background: "#1DB89A", color: "#041410",
-              padding: "16px 36px", borderRadius: 6,
-              fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
-              fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
-              textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s",
-              display: "inline-block", boxShadow: "0 4px 24px #1DB89A44",
-            }}
-              onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }}
-              onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 4px 24px #1DB89A44"; }}
-            >
-              Entra in Leghe Fantacrypto →
-            </a>
             <a href="#partner-form"
               style={{
                 border: "1px solid #1DB89A55", color: "#1DB89A",
