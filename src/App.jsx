@@ -218,7 +218,7 @@ function Navbar() {
             </li>
           ))}
           <li>
-            <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://www.fantacryptoleague.io/" style={{
               background: "#1DB89A", color: "#041410",
               padding: "10px 24px", borderRadius: 6,
               fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
@@ -265,7 +265,7 @@ function Navbar() {
               </li>
             ))}
             <li>
-              <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.fantacryptoleague.io/"
                 onClick={() => setMenuOpen(false)} style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "12px 28px", borderRadius: 6,
@@ -357,7 +357,7 @@ function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="https://www.fantacryptoleague.io/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.fantacryptoleague.io/"
               style={{
                 background: "#1DB89A", color: "#041410",
                 padding: "16px 36px", borderRadius: 6,
@@ -366,8 +366,6 @@ function Hero() {
                 textDecoration: "none", display: "inline-block", transition: "all 0.3s",
                 boxShadow: "0 4px 24px #1DB89A44",
               }}
-              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 32px #1DB89A55"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px #1DB89A44"; }}
             >
               Entra in Leghe Fantacrypto
             </a>
