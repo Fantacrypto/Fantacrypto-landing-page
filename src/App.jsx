@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 // ─── SEO HEAD (inject via Helmet or index.html in production) ───────────────
-// Title: Fantacrypto League | Il Fantasy Game sulle Criptovalute
+// Title: Fantacrypto League | Il Fantasy Game sulle Crypto
 // Description: Fantacrypto League è il primo fantasy game su crypto e strumenti
 //              finanziari. Scegli, gioca e crea le tue leghe. Impara il mercato
 //              crypto divertendoti, 365 giorni l'anno.
@@ -11,25 +11,24 @@ const NAV_LINKS = [
   { label: "Chi siamo", href: "#chi-siamo" },
   { label: "Come funziona", href: "#come-funziona" },
   { label: "Visione", href: "#visione" },
-  { label: "Monetizzazione", href: "#monetizzazione" },
   { label: "Partnership", href: "#partnership" },
 ];
 
 const FEATURES = [
   {
-    icon: "🏆",
+    icon: "/icons/icon-collaudato.png",
     title: "Collaudato e Amato",
     desc: "Il modello Fantacalcio ha dimostrato il potenziale virale di un gioco ben strutturato, capace di catturare milioni di utenti per stagioni intere.",
   },
   {
-    icon: "₿",
-    title: "Adattamento Cripto",
-    desc: "Trasportiamo questo modello vincente nel dinamico mondo delle criptovalute, creando un'esperienza di gioco continua, senza limiti stagionali.",
+    icon: "/icons/icon-crypto.png",
+    title: "Adattamento Crypto",
+    desc: "Trasportiamo questo modello vincente nel dinamico mondo delle crypto, creando un'esperienza di gioco continua, senza limiti stagionali.",
   },
   {
-    icon: "🎓",
+    icon: "/icons/icon-gioca.png",
     title: "Gioca e Impara",
-    desc: "Non è solo un gioco di abilità: è una piattaforma interattiva per imparare le dinamiche del mercato cripto in tempo reale.",
+    desc: "Non è solo un gioco di abilità: è una piattaforma interattiva per imparare le dinamiche del mercato crypto in tempo reale.",
   },
 ];
 
@@ -37,18 +36,21 @@ const HOW_STEPS = [
   {
     step: "01",
     keyword: "PLAY",
+    icon: "/icons/icon-play.png",
     title: "Scegli le tue crypto",
-    desc: "Costruisci il tuo portfolio virtuale scegliendo tra le principali criptovalute e strumenti finanziari. Nessuna competenza avanzata richiesta.",
+    desc: "Costruisci il tuo portfolio virtuale scegliendo tra le principali crypto e strumenti finanziari. Nessuna competenza avanzata richiesta.",
   },
   {
     step: "02",
     keyword: "LEARN",
+    icon: "/icons/icon-learn.png",
     title: "Impara giocando",
     desc: "Ogni sfida è un'occasione per crescere e affinare le tue strategie. Dati in tempo reale da CoinMarketCap per decisioni sempre aggiornate.",
   },
   {
     step: "03",
     keyword: "WIN",
+    icon: "/icons/icon-win.png",
     title: "Crea le tue leghe",
     desc: "Dalla community globale alle leghe private con amici: un ambiente divertente, competitivo e stimolante 365 giorni l'anno.",
   },
@@ -56,17 +58,17 @@ const HOW_STEPS = [
 
 const GLOBAL_PILLARS = [
   {
-    icon: "🌐",
+    icon: "/icons/icon-multilingua.png",
     title: "Interfaccia Multilingua",
     desc: "Progettato per essere accessibile globalmente, con un'interfaccia intuitiva disponibile in più lingue per un'esperienza inclusiva.",
   },
   {
-    icon: "🎮",
+    icon: "/icons/icon-gamification.png",
     title: "Gamification Universale",
     desc: "Oltre il calcio: crypto, basket, rugby e altri strumenti finanziari per una vera esperienza di gamification senza confini.",
   },
   {
-    icon: "🔓",
+    icon: "/icons/icon-accessibilita.png",
     title: "Accessibilità Totale",
     desc: "Nessun limite geografico. Fantacrypto è accessibile da qualsiasi paese, un vero linguaggio globale basato sulla blockchain, senza barriere.",
   },
@@ -79,7 +81,7 @@ const TECH_PILLARS = [
   },
   {
     title: "Dati in Tempo Reale",
-    desc: "Integrazione API con CoinMarketCap: i valori delle criptovalute sono sempre aggiornati, fornendo ai giocatori informazioni precise e tempestive.",
+    desc: "Integrazione API con CoinMarketCap: i valori delle crypto sono sempre aggiornati, fornendo ai giocatori informazioni precise e tempestive.",
   },
   {
     title: "Design Centrato sull'Utente",
@@ -90,8 +92,8 @@ const TECH_PILLARS = [
 const MONETIZATION = [
   { icon: "📢", title: "Pubblicità Interna", desc: "Spazi pubblicitari mirati per sbloccare dati extra e funzionalità avanzate." },
   { icon: "⭐", title: "Abbonamenti Premium", desc: "Esperienza senza pubblicità e accesso esclusivo a statistiche avanzate per gli utenti più fedeli." },
-  { icon: "🤝", title: "Sponsorizzazioni", desc: "Posizionamento privilegiato per brand e progetti cripto che vogliono raggiungere una community coinvolta." },
-  { icon: "💰", title: "Revenue Sharing", desc: "Accordi di partnership vantaggiosi per una crescita reciproca e sostenibile con l'ecosistema cripto." },
+  { icon: "🤝", title: "Sponsorizzazioni", desc: "Posizionamento privilegiato per brand e progetti crypto che vogliono raggiungere una community coinvolta." },
+  { icon: "💰", title: "Revenue Sharing", desc: "Accordi di partnership vantaggiosi per una crescita reciproca e sostenibile con l'ecosistema crypto." },
 ];
 
 // ─── COIN SVG LOGO ────────────────────────────────────────────────────────────
@@ -286,7 +288,7 @@ function Navbar() {
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="hero" aria-label="Fantacrypto League - Il fantasy game sulle criptovalute"
+    <section id="hero" aria-label="Fantacrypto League - Il fantasy game sulle crypto"
       style={{
         minHeight: "100vh",
         background: "linear-gradient(135deg, #041410 0%, #0a2e2a 40%, #0D4F4A 75%, #1DB89A 100%)",
@@ -315,7 +317,7 @@ function Hero() {
       <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", gap: 64, flexWrap: "wrap" }}>
 
         {/* Text */}
-        <div style={{ flex: "1 1 480px" }}>
+        <div style={{ flex: "1 1 480px", minWidth: 0 }}>
           <div style={{
             display: "inline-block",
             background: "#1DB89A22", border: "1px solid #1DB89A44",
@@ -323,12 +325,12 @@ function Hero() {
             fontFamily: "'Space Mono', monospace", fontSize: 11,
             color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase",
           }}>
-            🚀 Il primo fantasy game sulle crypto
+            IL PRIMO FANTASY GAME SULLE CRYPTO
           </div>
 
           <h1 style={{
             fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 900, fontSize: "clamp(48px, 8vw, 88px)",
+            fontWeight: 900, fontSize: "clamp(52px, 9vw, 104px)",
             color: "#fff", lineHeight: 0.95,
             letterSpacing: "-0.02em", margin: "0 0 8px",
             textTransform: "uppercase",
@@ -339,17 +341,17 @@ function Hero() {
           </h1>
           <div style={{
             fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 700, fontSize: "clamp(20px, 3vw, 28px)",
+            fontWeight: 700, fontSize: "clamp(20px, 3vw, 32px)",
             color: "#a0c8c2", letterSpacing: "0.06em", marginBottom: 32,
             textTransform: "uppercase",
           }}>
-            CRIPTO
+            CRYPTO
           </div>
 
           <p style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: 18, lineHeight: 1.7,
-            color: "#8bbfb8", maxWidth: 520, marginBottom: 48,
+            fontSize: "clamp(16px, 1.5vw, 19px)", lineHeight: 1.7,
+            color: "#8bbfb8", maxWidth: 560, marginBottom: 48,
           }}>
             Fantacrypto League è il primo Fantasy Game su Crypto e strumenti finanziari,
             in stile Fantasanremo. Non servono competenze avanzate:{" "}
@@ -362,7 +364,7 @@ function Hero() {
               background: "#1DB89A", color: "#041410",
               padding: "16px 36px", borderRadius: 6,
               fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
-              fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
+              fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase",
               textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s",
               display: "inline-block",
             }}
@@ -376,7 +378,7 @@ function Hero() {
                 border: "1px solid #1DB89A55", color: "#1DB89A",
                 padding: "16px 36px", borderRadius: 6,
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
-                fontSize: 18, letterSpacing: "0.1em", textTransform: "uppercase",
+                fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase",
                 textDecoration: "none", display: "inline-block", transition: "all 0.3s",
               }}
               onMouseEnter={e => { e.currentTarget.style.background = "#1DB89A11"; e.currentTarget.style.borderColor = "#1DB89A"; }}
@@ -391,20 +393,19 @@ function Hero() {
             {[
               { num: "365", label: "Giorni l'anno" },
               { num: "∞", label: "Leghe disponibili" },
-              { num: "100+", label: "Crypto nel gioco" },
             ].map(stat => (
               <div key={stat.label}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 36, color: "#1DB89A", lineHeight: 1 }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 3vw, 44px)", color: "#1DB89A", lineHeight: 1 }}>{stat.num}</div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#5a8a85", marginTop: 4 }}>{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Coin visual */}
-        <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <div style={{ animation: "coinFloat 4s ease-in-out infinite", filter: "drop-shadow(0 30px 60px #1DB89A44)" }}>
-            <svg width="320" height="320" viewBox="0 0 200 200" fill="none" aria-label="Fantacrypto coin">
+        {/* Coin visual — nascosto su mobile piccolo, grande su desktop */}
+        <div style={{ flex: "1 1 340px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ animation: "coinFloat 4s ease-in-out infinite", filter: "drop-shadow(0 30px 60px #1DB89A55)" }}>
+            <svg width="min(420px, 90vw)" height="min(420px, 90vw)" viewBox="0 0 200 200" fill="none" aria-label="Fantacrypto coin" style={{ width: "clamp(280px, 40vw, 420px)", height: "clamp(280px, 40vw, 420px)" }}>
               <defs>
                 <radialGradient id="coinGrad" cx="40%" cy="35%">
                   <stop offset="0%" stopColor="#2ecfae" />
@@ -466,14 +467,12 @@ function ChiSiamo() {
               <span style={{ color: "#1DB89A" }}>delle Crypto</span>
             </h2>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.8, color: "#7ab0aa", marginBottom: 24 }}>
-              Fantacrypto League è il primo Fantasy Game su Crypto e strumenti finanziari.
-              Abbiamo preso il modello vincente del Fantacalcio — collaudato, amato, virale —
-              e l'abbiamo trasportato nel dinamico mondo delle criptovalute.
+              Fantacrypto League è il primo Fantasy Game su Crypto e strumenti finanziari, in stile Fantasanremo.
             </p>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.8, color: "#7ab0aa" }}>
-              Il nostro dominio e i canali social sono già attivi:{" "}
-              <strong style={{ color: "#fff" }}>le basi sono pronte per il lancio e la scalata.</strong>{" "}
-              Un campionato perpetuo, senza stagioni, accessibile a chiunque, 365 giorni l'anno.
+              Non servono competenze avanzate:{" "}
+              <strong style={{ color: "#fff" }}>scegli, gioca e crea le tue leghe</strong>{" "}
+              per divertirti con una community in continua crescita.
             </p>
           </div>
 
@@ -489,7 +488,7 @@ function ChiSiamo() {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateX(6px)"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateX(0)"; }}
               >
-                <div style={{ fontSize: 28, flexShrink: 0, lineHeight: 1 }}>{f.icon}</div>
+                <img src={f.icon} alt={f.title} style={{ width: 40, height: 40, flexShrink: 0, objectFit: "contain" }} onError={e => { e.target.style.display = "none"; }} />
                 <div>
                   <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, color: "#1DB89A", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 8px" }}>
                     {f.title}
@@ -528,7 +527,7 @@ function ComeFunziona() {
             fontSize: "clamp(36px, 5vw, 60px)", color: "#fff",
             textTransform: "uppercase", margin: 0, lineHeight: 1.05,
           }}>
-            PLAY. LEARN. <span style={{ color: "#1DB89A" }}>WIN.</span>
+            PLAY TO <span style={{ color: "#1DB89A" }}>LEARN.</span>
           </h2>
         </div>
 
@@ -613,7 +612,7 @@ function Visione() {
               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px)"; e.currentTarget.style.boxShadow = "0 24px 48px #1DB89A22"; }}
               onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
             >
-              <div style={{ fontSize: 42, marginBottom: 20 }} role="img" aria-hidden="true">{p.icon}</div>
+              <img src={p.icon} alt={p.title} style={{ width: 48, height: 48, marginBottom: 20, objectFit: "contain" }} onError={e => { e.target.style.display = "none"; }} />
               <h3 style={{
                 fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800,
                 fontSize: 20, color: "#1DB89A", textTransform: "uppercase",
@@ -864,7 +863,7 @@ function Partnership() {
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "#6a9e98", maxWidth: 640, margin: "0 auto 64px", lineHeight: 1.8 }}>
           Siamo più di un semplice gioco: siamo una{" "}
           <strong style={{ color: "#fff" }}>nuova piattaforma di comunicazione</strong>{" "}
-          per il mondo cripto. Attraverso la visibilità diretta nel gioco, l'integrazione in tornei speciali
+          per il mondo crypto. Attraverso la visibilità diretta nel gioco, l'integrazione in tornei speciali
           e accordi di revenue sharing, creiamo un ecosistema in cui tutti vincono.
         </p>
 
@@ -997,19 +996,39 @@ function Footer() {
           <div>
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>Social</div>
             <div style={{ display: "flex", gap: 12 }}>
-              {["Twitter/X", "Telegram", "Instagram"].map(s => (
-                <a key={s} href="#" aria-label={s} style={{
-                  width: 40, height: 40,
+              {[
+                {
+                  label: "Instagram",
+                  href: "https://www.instagram.com/fantacryptoleague",
+                  svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                },
+                {
+                  label: "X (Twitter)",
+                  href: "https://x.com/fantacryptoleague",
+                  svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                },
+                {
+                  label: "TikTok",
+                  href: "https://www.tiktok.com/@fantacryptoleague",
+                  svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+                },
+                {
+                  label: "Telegram",
+                  href: "https://t.me/fantacryptoleague",
+                  svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                },
+              ].map(s => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} style={{
+                  width: 44, height: 44,
                   background: "#0d2e2a", border: "1px solid #1DB89A22",
-                  borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "#1DB89A", fontSize: 12, textDecoration: "none",
-                  fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
-                  transition: "border-color 0.2s, background 0.2s",
+                  borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center",
+                  color: "#1DB89A", textDecoration: "none",
+                  transition: "border-color 0.2s, background 0.2s, color 0.2s",
                 }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A"; e.currentTarget.style.background = "#1DB89A22"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.background = "#0d2e2a"; }}
                 >
-                  {s[0]}
+                  {s.svg}
                 </a>
               ))}
             </div>
@@ -1083,13 +1102,13 @@ export default function App() {
         ── SEO NOTE FOR DEPLOYMENT ──────────────────────────────────────────────
         In production (Vite/CRA/Next.js), add to <head> in index.html or via react-helmet:
 
-        <title>Fantacrypto League | Il Fantasy Game sulle Criptovalute</title>
+        <title>Fantacrypto League | Il Fantasy Game sulle Crypto</title>
         <meta name="description" content="Fantacrypto League è il primo fantasy game su crypto e strumenti finanziari, in stile Fantasanremo. Scegli, gioca e crea le tue leghe crypto. 365 giorni l'anno." />
-        <meta name="keywords" content="fantacrypto, fantasy game crypto, criptovalute gioco, fantacalcio crypto, bitcoin game, ethereum fantasy, crypto league" />
+        <meta name="keywords" content="fantacrypto, fantasy game crypto, crypto gioco, fantacalcio crypto, bitcoin game, ethereum fantasy, crypto league" />
         <link rel="canonical" href="https://fantacryptoleague.io/" />
 
         <!-- Open Graph -->
-        <meta property="og:title" content="Fantacrypto League | Il Fantasy Game sulle Criptovalute" />
+        <meta property="og:title" content="Fantacrypto League | Il Fantasy Game sulle Crypto" />
         <meta property="og:description" content="Il primo fantasy game su crypto. Scegli, gioca e impara le dinamiche del mercato in tempo reale." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fantacryptoleague.io/" />
@@ -1145,8 +1164,6 @@ export default function App() {
         <Hero />
         <ChiSiamo />
         <ComeFunziona />
-        <Visione />
-        <Monetizzazione />
         <Partnership />
       </main>
 
