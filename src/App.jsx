@@ -71,7 +71,7 @@ const T = {
       messageLabel: "Messaggio", messagePlaceholder: "Che tipo di collaborazione hai in mente?",
       submit: "Invia richiesta", note: "Ti rispondiamo entro 24h",
       success: "Grazie! Ti rispondiamo entro 24h.",
-      error: "Errore nell'invio. Scrivici a info@fantacrypto.io",
+      error: "Errore nell'invio. Scrivici a infofantacrypto@gmail.com",
     },
     cta: {
       title: "PENSI DI ESSERE", title2: "PIÙ BRAVO DEGLI ALTRI?",
@@ -84,7 +84,7 @@ const T = {
         { label: "Come funziona", href: "#come-funziona" },
         { label: "Vision", href: "#vision" },
         { label: "Partnership", href: "#partnership" },
-        { label: "Contatti", href: "mailto:info@fantacrypto.io" },
+        { label: "Contatti", href: "mailto:infofantacrypto@gmail.com" },
       ],
       social: "Social", contact: "Contatti",
       telegram: "Telegram ufficiale",
@@ -163,7 +163,7 @@ const T = {
       messageLabel: "Message", messagePlaceholder: "What kind of collaboration do you have in mind?",
       submit: "Send request", note: "We reply within 24h",
       success: "Thanks! We'll get back to you within 24h.",
-      error: "Sending failed. Reach us at info@fantacrypto.io",
+      error: "Sending failed. Reach us at infofantacrypto@gmail.com",
     },
     cta: {
       title: "THINK YOU'RE BETTER", title2: "THAN THE OTHERS?",
@@ -176,7 +176,7 @@ const T = {
         { label: "How it works", href: "#come-funziona" },
         { label: "Vision", href: "#vision" },
         { label: "Partnership", href: "#partnership" },
-        { label: "Contact", href: "mailto:info@fantacrypto.io" },
+        { label: "Contact", href: "mailto:infofantacrypto@gmail.com" },
       ],
       social: "Social", contact: "Contact",
       telegram: "Official Telegram",
@@ -665,7 +665,7 @@ function Footer({ lang }) {
               ))}
             </div>
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{t.contact}</div>
-            <a href="mailto:infofantacrypto.io@gmail.com" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>info@fantacrypto.io</a>
+            <a href="mailto:infofantacrypto@gmail.com" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>infofantacrypto@gmail.com</a>
             <a href="https://t.me/fantacrypto" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{t.telegram}</a>
           </div>
         </div>
