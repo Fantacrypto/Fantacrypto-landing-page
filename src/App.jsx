@@ -665,7 +665,7 @@ function Footer({ lang }) {
               ))}
             </div>
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{t.contact}</div>
-            <a href="mailto:info@fantacrypto.io" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>info@fantacrypto.io</a>
+            <a href="mailto:infofantacrypto.io@gmail.com" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>info@fantacrypto.io</a>
             <a href="https://t.me/fantacrypto" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{t.telegram}</a>
           </div>
         </div>
