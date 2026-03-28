@@ -208,16 +208,62 @@ function CoinLogo({ size = 40 }) {
   );
 }
 
-const TICKER_ITEMS = ["BTC +2.4%", "ETH +1.8%", "BNB -0.3%", "SOL +5.1%", "ADA +0.9%", "DOGE +3.2%", "XRP +1.1%", "AVAX +4.7%", "MATIC +2.0%", "LINK +1.5%"];
+const DEFAULT_TICKER_ITEMS = ["BTC +2.4%", "ETH +1.8%", "BNB -0.3%", "SOL +5.1%", "ADA +0.9%", "DOGE +3.2%", "XRP +1.1%", "AVAX +4.7%", "MATIC +2.0%", "LINK +1.5%"];
+const COINGECKO_ASSETS = [
+  { symbol: "BTC", id: "bitcoin" },
+  { symbol: "ETH", id: "ethereum" },
+  { symbol: "BNB", id: "binancecoin" },
+  { symbol: "SOL", id: "solana" },
+  { symbol: "ADA", id: "cardano" },
+  { symbol: "DOGE", id: "dogecoin" },
+  { symbol: "XRP", id: "ripple" },
+  { symbol: "AVAX", id: "avalanche-2" },
+  { symbol: "MATIC", id: "matic-network" },
+  { symbol: "LINK", id: "chainlink" },
+];
 const TICKER_HEIGHT = 34;
 const NAV_HEIGHT = 64;
 const HEADER_HEIGHT = TICKER_HEIGHT + NAV_HEIGHT;
 
 function Ticker() {
+  const [tickerItems, setTickerItems] = useState(DEFAULT_TICKER_ITEMS);
+
+  useEffect(() => {
+    let isMounted = true;
+    const ids = COINGECKO_ASSETS.map((asset) => asset.id).join(",");
+
+    const loadTicker = async () => {
+      try {
+        const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        const nextItems = COINGECKO_ASSETS.map(({ symbol, id }) => {
+          const rawChange = data?.[id]?.usd_24h_change;
+          if (typeof rawChange !== "number") return null;
+          const rounded = Math.abs(rawChange).toFixed(1);
+          const sign = rawChange >= 0 ? "+" : "-";
+          return `${symbol} ${sign}${rounded}%`;
+        }).filter(Boolean);
+
+        if (isMounted && nextItems.length > 0) setTickerItems(nextItems);
+      } catch {
+        // keep fallback items on network/API errors
+      }
+    };
+
+    loadTicker();
+    const interval = setInterval(loadTicker, 60000);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div style={{ background: "#0a2e2a", borderBottom: "1px solid #1DB89A22", overflow: "hidden", height: TICKER_HEIGHT, display: "flex", alignItems: "center", fontSize: "12px", fontFamily: "'Space Mono', monospace", color: "#1DB89A", letterSpacing: "0.05em" }}>
       <div style={{ display: "flex", gap: "48px", animation: "tickerScroll 30s linear infinite", whiteSpace: "nowrap" }}>
-        {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+        {[...tickerItems, ...tickerItems].map((item, i) => (
           <span key={i} style={{ opacity: item.includes("-") ? 0.6 : 1, color: item.includes("-") ? "#ff6b6b" : "#1DB89A" }}>{item}</span>
         ))}
       </div>
