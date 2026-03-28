@@ -81,9 +81,21 @@ const T = {
       desc: "Il fantasy game sulle criptovalute basato su dati reali di mercato.",
       links: "Link utili",
       linkItems: [
+<<<<<<< HEAD
         { label: "Come funziona", href: "#come-funziona" },
+=======
+        { label: "How it works", href: "#how-it-works" },
+>>>>>>> feature/conflict-demo-1
+<<<<<<< HEAD
         { label: "Vision", href: "#vision" },
+=======
+        { label: "Visione", href: "#vision" },
+>>>>>>> feature/conflict-demo-2
+<<<<<<< HEAD
         { label: "Partnership", href: "#partnership" },
+=======
+        { label: "Partner", href: "#partnership" },
+>>>>>>> feature/conflict-demo-3
         { label: "Contatti", href: "mailto:infofantacrypto@gmail.com" },
       ],
       social: "Social", contact: "Contatti",
@@ -434,7 +446,7 @@ function Hero({ lang }) {
 
 function ComeFunziona({ lang }) {
   const t = T[lang].howItWorks;
-  const icons = ["/icons/play.png", "/icons/learn.png", "/icons/win.png"];
+  const icons = ["/play.png", null, null];
   return (
     <section id="come-funziona" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, transparent, #1DB89A, transparent)" }} aria-hidden="true" />
@@ -451,7 +463,9 @@ function ComeFunziona({ lang }) {
               onMouseEnter={e => e.currentTarget.style.background = "linear-gradient(180deg, #1DB89A15, #1DB89A05)"}
               onMouseLeave={e => e.currentTarget.style.background = i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent"}>
               <div style={{ position: "absolute", top: 16, right: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 80, color: "#1DB89A08", lineHeight: 1, userSelect: "none" }} aria-hidden="true">0{i + 1}</div>
-              <img src={icons[i]} alt={step.label} style={{ width: 48, height: 48, objectFit: "contain", marginBottom: 20 }} onError={e => e.target.style.display = "none"} />
+              {icons[i] && (
+                <img src={icons[i]} alt={step.label} style={{ width: 48, height: 48, objectFit: "contain", marginBottom: 20 }} onError={e => e.target.style.display = "none"} />
+              )}
               <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", marginBottom: 12 }}>{step.label}</div>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.7, color: "#7ab0aa", margin: 0 }}>{step.desc}</p>
             </article>
@@ -490,7 +504,7 @@ function RealMarket({ lang }) {
 
 function Skill({ lang }) {
   const t = T[lang].skill;
-  const icons = ["/icons/play.png", "/icons/learn.png", "/icons/win.png"];
+  const icons = [null, null, null];
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
@@ -503,7 +517,9 @@ function Skill({ lang }) {
           {t.items.map((item, i) => (
             <div key={i} style={{ background: "linear-gradient(135deg, #0d2e2a, #0a2220)", border: "1px solid #1DB89A22", borderRadius: 12, padding: "28px 32px", textAlign: "center", minWidth: 140, transition: "border-color 0.3s" }}
               onMouseEnter={e => e.currentTarget.style.borderColor = "#1DB89A66"} onMouseLeave={e => e.currentTarget.style.borderColor = "#1DB89A22"}>
-              <img src={icons[i]} alt={item.label} style={{ width: 40, height: 40, marginBottom: 12, objectFit: "contain" }} onError={e => e.target.style.display = "none"} />
+              {icons[i] && (
+                <img src={icons[i]} alt={item.label} style={{ width: 40, height: 40, marginBottom: 12, objectFit: "contain" }} onError={e => e.target.style.display = "none"} />
+              )}
               <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 16, color: "#fff", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</div>
             </div>
           ))}
