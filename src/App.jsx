@@ -434,7 +434,7 @@ function Hero({ lang }) {
 
 function ComeFunziona({ lang }) {
   const t = T[lang].howItWorks;
-  const icons = ["/icons/play.png", "/icons/learn.png", "/icons/win.png"];
+  const icons = ["/play.png", "/play.png", "/play.png"];
   return (
     <section id="come-funziona" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, transparent, #1DB89A, transparent)" }} aria-hidden="true" />
@@ -490,7 +490,7 @@ function RealMarket({ lang }) {
 
 function Skill({ lang }) {
   const t = T[lang].skill;
-  const icons = ["/icons/play.png", "/icons/learn.png", "/icons/win.png"];
+  const icons = ["/play.png", "/play.png", "/play.png"];
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
