@@ -422,9 +422,9 @@ function Hero({ lang }) {
 function ComeFunziona({ lang }) {
   const t = T[lang].howItWorks;
   const stepVisuals = [
-    { src: "/costruisci-square.svg", name: lang === "it" ? "Selezione Asset" : "Asset Selection" },
-    { src: "/ottimizza-square.svg", name: lang === "it" ? "Strategia Dinamica" : "Dynamic Strategy" },
-    { src: "/vinci-square.svg", name: lang === "it" ? "Podio Finale" : "Final Podium" },
+    { src: "/play.png", name: lang === "it" ? "Selezione Asset" : "Asset Selection" },
+    { src: "/win.png", name: lang === "it" ? "Strategia Dinamica" : "Dynamic Strategy" },
+    { src: "/better.png", name: lang === "it" ? "Podio Finale" : "Final Podium" },
   ];
   return (
     <section id="come-funziona" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden" }}>
