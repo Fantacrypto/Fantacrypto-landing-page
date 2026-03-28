@@ -237,7 +237,6 @@ function Ticker() {
         const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`);
         if (!res.ok) return;
         const data = await res.json();
-
         const nextItems = COINGECKO_ASSETS.map(({ symbol, id }) => {
           const rawChange = data?.[id]?.usd_24h_change;
           if (typeof rawChange !== "number") return null;
@@ -245,19 +244,13 @@ function Ticker() {
           const sign = rawChange >= 0 ? "+" : "-";
           return `${symbol} ${sign}${rounded}%`;
         }).filter(Boolean);
-
         if (isMounted && nextItems.length > 0) setTickerItems(nextItems);
-      } catch {
-        // keep fallback items on network/API errors
-      }
+      } catch { }
     };
 
     loadTicker();
     const interval = setInterval(loadTicker, 60000);
-    return () => {
-      isMounted = false;
-      clearInterval(interval);
-    };
+    return () => { isMounted = false; clearInterval(interval); };
   }, []);
 
   return (
@@ -275,13 +268,7 @@ function LangToggle({ lang, setLang }) {
   return (
     <button
       onClick={() => setLang(lang === "it" ? "en" : "it")}
-      style={{
-        background: "transparent", border: "1px solid #1DB89A55",
-        borderRadius: 6, padding: "6px 12px", cursor: "pointer",
-        fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
-        fontSize: 13, letterSpacing: "0.1em", color: "#1DB89A",
-        transition: "all 0.2s", display: "flex", alignItems: "center", gap: 6,
-      }}
+      style={{ background: "transparent", border: "1px solid #1DB89A55", borderRadius: 6, padding: "6px 12px", cursor: "pointer", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: "0.1em", color: "#1DB89A", transition: "all 0.2s", display: "flex", alignItems: "center", gap: 6 }}
       onMouseEnter={e => { e.currentTarget.style.background = "#1DB89A22"; e.currentTarget.style.borderColor = "#1DB89A"; }}
       onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#1DB89A55"; }}
       aria-label={lang === "it" ? "Switch to English" : "Passa all'italiano"}
@@ -497,7 +484,8 @@ function RealMarket({ lang }) {
 
 function Skill({ lang }) {
   const t = T[lang].skill;
-  const icons = ["/play.png", "/play.png", "/play.png"];
+  // ✅ AGGIORNATO: usa i tuoi PNG reali
+  const icons = ["/play.png", "/win.png", "/better.png"];
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
@@ -523,7 +511,8 @@ function Skill({ lang }) {
 
 function Modalita({ lang }) {
   const t = T[lang].modes;
-  const icons = ["/icons/collaudato.png", "/icons/adattamento.png", "/icons/impara.png"];
+  // ✅ AGGIORNATO: usa i tuoi PNG reali
+  const icons = ["/play.png", "/win.png", "/better.png"];
   return (
     <section id="modalita" style={{ padding: "120px 24px", background: "#061c18" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -731,7 +720,6 @@ function Footer({ lang }) {
   );
 }
 
-// ─── APP ─────────────────────────────────────────────────────────────────────
 export default function App() {
   const [lang, setLang] = useState("it");
 
@@ -777,4 +765,4 @@ export default function App() {
       <Footer lang={lang} />
     </>
   );
-}
+            }
