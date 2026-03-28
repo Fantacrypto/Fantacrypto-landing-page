@@ -434,7 +434,11 @@ function Hero({ lang }) {
 
 function ComeFunziona({ lang }) {
   const t = T[lang].howItWorks;
-  const icons = ["/play.png", "/play.png", "/play.png"];
+  const stepVisuals = [
+    { src: "/costruisci-square.svg", name: lang === "it" ? "Selezione Asset" : "Asset Selection" },
+    { src: "/ottimizza-square.svg", name: lang === "it" ? "Strategia Dinamica" : "Dynamic Strategy" },
+    { src: "/vinci-square.svg", name: lang === "it" ? "Podio Finale" : "Final Podium" },
+  ];
   return (
     <section id="come-funziona" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, transparent, #1DB89A, transparent)" }} aria-hidden="true" />
@@ -451,9 +455,10 @@ function ComeFunziona({ lang }) {
               onMouseEnter={e => e.currentTarget.style.background = "linear-gradient(180deg, #1DB89A15, #1DB89A05)"}
               onMouseLeave={e => e.currentTarget.style.background = i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent"}>
               <div style={{ position: "absolute", top: 16, right: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 80, color: "#1DB89A08", lineHeight: 1, userSelect: "none" }} aria-hidden="true">0{i + 1}</div>
-              <div style={{ width: 200, height: 200, border: "1px solid #1DB89A33", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", background: "#06231e", marginBottom: 20, overflow: "hidden" }}>
-                <img src={icons[i]} alt={step.label} style={{ width: "100%", height: "100%", objectFit: "contain", padding: 12 }} onError={e => e.target.style.display = "none"} />
+              <div style={{ width: 200, height: 200, border: "none", borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "#06231e", marginBottom: 20, overflow: "hidden" }}>
+                <img src={stepVisuals[i].src} alt={stepVisuals[i].name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={e => e.target.style.display = "none"} />
               </div>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#5fa69d", marginBottom: 12 }}>{stepVisuals[i].name}</div>
               <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", marginBottom: 12 }}>{step.label}</div>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.7, color: "#7ab0aa", margin: 0 }}>{step.desc}</p>
             </article>
