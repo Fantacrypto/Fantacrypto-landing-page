@@ -765,4 +765,4 @@ export default function App() {
       <Footer lang={lang} />
     </>
   );
-            }
+}
