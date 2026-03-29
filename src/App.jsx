@@ -461,27 +461,143 @@ function ComeFunziona({ lang }) {
   );
 }
 
+function PlexusCanvas() {
+  const canvasRef = React.useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let animId;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const NUM = 60;
+    const MAX_DIST = 140;
+    const nodes = Array.from({ length: NUM }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      r: Math.random() * 2 + 1.5,
+    }));
+
+    const draw = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Aggiorna posizioni
+      nodes.forEach(n => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      });
+
+      // Disegna linee
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const alpha = (1 - dist / MAX_DIST) * 0.5;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(29, 184, 154, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Disegna punti
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(29, 184, 154, 0.8)";
+        ctx.fill();
+      });
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    draw();
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }}
+      aria-hidden="true"
+    />
+  );
+}
+
 function RealMarket({ lang }) {
   const t = T[lang].realMarket;
   return (
-    <section id="real-market" style={{ padding: "120px 24px", background: "#061c18" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+    <section id="real-market" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden", minHeight: 480 }}>
+
+      {/* Plexus canvas */}
+      <PlexusCanvas />
+
+      {/* Glow centrale */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(ellipse 60% 50% at 50% 60%, #1DB89A08 0%, transparent 70%)", pointerEvents: "none" }} aria-hidden="true" />
+
+      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", marginBottom: 48 }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 56, lineHeight: 1.7 }}>{t.desc}</p>
+
+        {/* Card fluttuanti sopra il plexus */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap", marginBottom: 56 }}>
           {t.items.map((item, i) => (
-            <div key={i} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 10, padding: "16px 28px", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, color: "#1DB89A", letterSpacing: "0.08em", textTransform: "uppercase" }}>{item}</div>
+            <div key={i} style={{
+              background: "rgba(4, 20, 16, 0.7)",
+              backdropFilter: "blur(16px)",
+              border: "1px solid #1DB89A55",
+              borderRadius: 16,
+              padding: "24px 36px",
+              fontFamily: "'Barlow Condensed', sans-serif",
+              fontWeight: 700, fontSize: 18,
+              color: "#1DB89A", letterSpacing: "0.08em", textTransform: "uppercase",
+              boxShadow: "0 8px 32px #00000066, 0 0 20px #1DB89A11",
+              animation: `floatCard${i} ${3.5 + i * 0.7}s ease-in-out infinite`,
+              transition: "border-color 0.3s, box-shadow 0.3s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A99"; e.currentTarget.style.boxShadow = "0 12px 40px #1DB89A33"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A55"; e.currentTarget.style.boxShadow = "0 8px 32px #00000066, 0 0 20px #1DB89A11"; }}
+            >
+              {item}
+            </div>
           ))}
         </div>
+
         <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", letterSpacing: "0.05em" }}>{t.micro}</p>
       </div>
+
+      <style>{`
+        @keyframes floatCard0 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes floatCard1 { 0%, 100% { transform: translateY(-6px); } 50% { transform: translateY(8px); } }
+        @keyframes floatCard2 { 0%, 100% { transform: translateY(4px); } 50% { transform: translateY(-12px); } }
+      `}</style>
     </section>
   );
 }
-
 function Skill({ lang }) {
   const t = T[lang].skill;
   // ✅ AGGIORNATO: usa i tuoi PNG reali
