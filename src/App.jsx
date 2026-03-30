@@ -698,21 +698,57 @@ function Modalita({ lang }) {
 
 function LevelUp({ lang }) {
   const t = T[lang].levelUp;
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(prev => (prev + 1) % t.items.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [t.items.length]);
+
   return (
     <section id="level-up" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
+        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 56px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 480, margin: "0 auto 48px", textAlign: "left" }}>
+
+        {/* Slider */}
+        <div style={{ maxWidth: 480, margin: "0 auto 48px", position: "relative", height: 90 }}>
           {t.items.map((item, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 16, background: "#0a1f1c", border: "1px solid #1DB89A22", borderRadius: 8, padding: "16px 20px" }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1DB89A", flexShrink: 0 }} />
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: "#7ab0aa" }}>{item}</span>
+            <div key={i} style={{
+              position: "absolute", inset: 0,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              background: "linear-gradient(135deg, #0d2e2a, #0a2220)",
+              border: `1px solid ${active === i ? "#1DB89A88" : "#1DB89A11"}`,
+              borderRadius: 12, padding: "0 28px",
+              opacity: active === i ? 1 : 0,
+              transform: active === i ? "translateY(0) scale(1)" : "translateY(12px) scale(0.97)",
+              transition: "opacity 0.5s ease, transform 0.5s ease, border-color 0.5s ease",
+              pointerEvents: active === i ? "auto" : "none",
+              boxShadow: active === i ? "0 0 32px #1DB89A18" : "none",
+            }}>
+              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(20px, 3vw, 26px)", color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                {item}
+              </span>
             </div>
           ))}
         </div>
+
+        {/* Dots */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 48 }}>
+          {t.items.map((_, i) => (
+            <button key={i} onClick={() => setActive(i)} style={{
+              width: active === i ? 24 : 8, height: 8,
+              borderRadius: 4, border: "none", cursor: "pointer",
+              background: active === i ? "#1DB89A" : "#1DB89A33",
+              transition: "all 0.3s ease", padding: 0,
+            }} />
+          ))}
+        </div>
+
         <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", letterSpacing: "0.05em" }}>{t.micro}</p>
       </div>
     </section>
