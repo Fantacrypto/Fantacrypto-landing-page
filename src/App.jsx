@@ -438,9 +438,7 @@ function ComeFunziona({ lang }) {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 2 }}>
           {t.steps.map((step, i) => (
-            <article key={i} style={{ background: i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent", border: "1px solid #1DB89A22", borderRadius: 12, padding: "48px 36px", position: "relative", overflow: "hidden", transition: "background 0.3s" }}
-              onMouseEnter={e => e.currentTarget.style.background = "linear-gradient(180deg, #1DB89A15, #1DB89A05)"}
-              onMouseLeave={e => e.currentTarget.style.background = i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent"}>
+            <article key={i} style={{ background: i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent", border: "1px solid #1DB89A22", borderRadius: 12, padding: "48px 36px", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 16, right: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 80, color: "#1DB89A08", lineHeight: 1, userSelect: "none" }} aria-hidden="true">0{i + 1}</div>
               <div style={{ width: 200, height: 200, border: "none", borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "#06231e", marginBottom: 20, overflow: "hidden" }}>
                 <img src={stepVisuals[i].src} alt={stepVisuals[i].name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={e => e.target.style.display = "none"} />
@@ -601,45 +599,74 @@ function RealMarket({ lang }) {
 function Skill({ lang }) {
   const t = T[lang].skill;
 
-  const icons = [
-    // Timer - Timing
-    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M128 72V128L168 152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M104 24H152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
-      <circle cx="128" cy="136" r="88" stroke="#1DB89A" strokeWidth="16"/>
-    </svg>,
-    // ChartLine - Analysis
-    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 200L96 136L136 176L224 72" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M176 72H224V120" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>,
-    // ShieldWarning - Risk management
-    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M40 114.79V56L128 24L216 56V114.79C216 163.36 178.11 208.7 128 224C77.89 208.7 40 163.36 40 114.79Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M128 104V136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
-      <circle cx="128" cy="164" r="10" fill="#1DB89A"/>
-    </svg>,
+  const bentoItems = [
+    {
+      label: t.items[0].label,
+      desc: lang === "it" ? "Entra nel momento giusto. Il mercato premia chi sa aspettare." : "Enter at the right moment. The market rewards patience.",
+      span: "col",
+      accent: "#1DB89A",
+      icon: <svg width="48" height="48" viewBox="0 0 256 256" fill="none"><path d="M128 72V128L168 152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M104 24H152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/><circle cx="128" cy="136" r="88" stroke="#1DB89A" strokeWidth="16"/></svg>,
+    },
+    {
+      label: t.items[1].label,
+      desc: lang === "it" ? "Leggi i dati, studia i pattern, prendi decisioni migliori." : "Read data, study patterns, make better decisions.",
+      span: "col",
+      accent: "#1DB89A",
+      icon: <svg width="48" height="48" viewBox="0 0 256 256" fill="none"><path d="M32 200L96 136L136 176L224 72" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M176 72H224V120" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    },
+    {
+      label: t.items[2].label,
+      desc: lang === "it" ? "Non puntare tutto su una carta sola. Diversifica, proteggi, vinci." : "Don't put all your chips on one move. Diversify, protect, win.",
+      span: "row",
+      accent: "#1DB89A",
+      icon: <svg width="56" height="56" viewBox="0 0 256 256" fill="none"><path d="M40 114.79V56L128 24L216 56V114.79C216 163.36 178.11 208.7 128 224C77.89 208.7 40 163.36 40 114.79Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M128 104V136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/><circle cx="128" cy="164" r="10" fill="#1DB89A"/></svg>,
+    },
   ];
 
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
-        <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
-          {t.title} <span style={{ color: "#1DB89A" }}>{t.highlight}</span> {t.title2}
-        </h2>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", marginBottom: 48 }}>
-          {t.items.map((item, i) => (
-            <div key={i} style={{ background: "linear-gradient(135deg, #0d2e2a, #0a2220)", border: "1px solid #1DB89A22", borderRadius: 12, padding: "28px 32px", textAlign: "center", minWidth: 140, transition: "border-color 0.3s, transform 0.3s" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateY(0)"; }}>
-              <div style={{ marginBottom: 14 }}>{icons[i]}</div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 16, color: "#fff", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</div>
-            </div>
-          ))}
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
+          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
+            {t.title} <span style={{ color: "#1DB89A" }}>{t.highlight}</span> {t.title2}
+          </h2>
         </div>
-        <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", letterSpacing: "0.05em" }}>{t.micro}</p>
+
+        {/* Bento Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "auto auto",
+          gap: 16,
+        }}>
+          {/* Card 1 — Timing */}
+          <div style={{ background: "linear-gradient(135deg, #0d2e2a, #091e1a)", border: "1px solid #1DB89A22", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
+            {bentoItems[0].icon}
+            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[0].label}</div>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[0].desc}</p>
+          </div>
+
+          {/* Card 2 — Analysis */}
+          <div style={{ background: "linear-gradient(135deg, #112e28, #0a2220)", border: "1px solid #1DB89A33", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
+            {bentoItems[1].icon}
+            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[1].label}</div>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[1].desc}</p>
+          </div>
+
+          {/* Card 3 — Risk management — full width */}
+          <div style={{ gridColumn: "1 / -1", background: "linear-gradient(135deg, #1DB89A18, #0a2220)", border: "1px solid #1DB89A44", borderRadius: 20, padding: "40px 36px", display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
+            <div style={{ flexShrink: 0 }}>{bentoItems[2].icon}</div>
+            <div style={{ flex: 1, minWidth: 200 }}>
+              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 26, color: "#1DB89A", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 10 }}>{bentoItems[2].label}</div>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "#7ab0aa", lineHeight: 1.7, margin: 0 }}>{bentoItems[2].desc}</p>
+            </div>
+          </div>
+        </div>
+
+        <p style={{ textAlign: "center", fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", letterSpacing: "0.05em", marginTop: 40 }}>{t.micro}</p>
       </div>
     </section>
   );
