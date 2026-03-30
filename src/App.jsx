@@ -600,8 +600,27 @@ function RealMarket({ lang }) {
 }
 function Skill({ lang }) {
   const t = T[lang].skill;
-  // ✅ AGGIORNATO: usa i tuoi PNG reali
-  const icons = ["/play.png", "/win.png", "/better.png"];
+
+  const icons = [
+    // Timer - Timing
+    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M128 72V128L168 152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M104 24H152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+      <circle cx="128" cy="136" r="88" stroke="#1DB89A" strokeWidth="16"/>
+    </svg>,
+    // ChartLine - Analysis
+    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 200L96 136L136 176L224 72" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M176 72H224V120" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>,
+    // ShieldWarning - Risk management
+    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 114.79V56L128 24L216 56V114.79C216 163.36 178.11 208.7 128 224C77.89 208.7 40 163.36 40 114.79Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M128 104V136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+      <circle cx="128" cy="164" r="10" fill="#1DB89A"/>
+    </svg>,
+  ];
+
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
@@ -612,9 +631,10 @@ function Skill({ lang }) {
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
         <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", marginBottom: 48 }}>
           {t.items.map((item, i) => (
-            <div key={i} style={{ background: "linear-gradient(135deg, #0d2e2a, #0a2220)", border: "1px solid #1DB89A22", borderRadius: 12, padding: "28px 32px", textAlign: "center", minWidth: 140, transition: "border-color 0.3s" }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = "#1DB89A66"} onMouseLeave={e => e.currentTarget.style.borderColor = "#1DB89A22"}>
-              <img src={icons[i]} alt={item.label} style={{ width: 40, height: 40, marginBottom: 12, objectFit: "contain" }} onError={e => e.target.style.display = "none"} />
+            <div key={i} style={{ background: "linear-gradient(135deg, #0d2e2a, #0a2220)", border: "1px solid #1DB89A22", borderRadius: 12, padding: "28px 32px", textAlign: "center", minWidth: 140, transition: "border-color 0.3s, transform 0.3s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateY(0)"; }}>
+              <div style={{ marginBottom: 14 }}>{icons[i]}</div>
               <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 16, color: "#fff", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</div>
             </div>
           ))}
@@ -627,8 +647,29 @@ function Skill({ lang }) {
 
 function Modalita({ lang }) {
   const t = T[lang].modes;
-  // ✅ AGGIORNATO: usa i tuoi PNG reali
-  const icons = ["/play.png", "/win.png", "/better.png"];
+
+  const icons = [
+    // Lock - Private leagues
+    <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="40" y="112" width="176" height="128" rx="8" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M88 112V80C88 53.49 106.05 32 128 32C149.95 32 168 53.49 168 80V112" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+      <circle cx="128" cy="168" r="12" fill="#1DB89A"/>
+      <path d="M128 180V200" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+    </svg>,
+    // Trophy - Global rankings
+    <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M56 40H200V136C200 172.93 167.67 203.2 128 203.2C88.33 203.2 56 172.93 56 136V40Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M56 80H24C24 80 24 136 56 136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M200 80H232C232 80 232 136 200 136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M96 224H160" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+      <path d="M128 203.2V224" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
+    </svg>,
+    // Lightning - Timed tournaments
+    <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M144 24L32 144H128L112 232L224 112H128L144 24Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>,
+  ];
+
   return (
     <section id="modalita" style={{ padding: "120px 24px", background: "#061c18" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -641,8 +682,9 @@ function Modalita({ lang }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 56 }}>
           {t.items.map((m, i) => (
             <article key={i} style={{ background: "linear-gradient(135deg, #0d2e2a, #0a2220)", border: "1px solid #1DB89A22", borderRadius: 12, padding: "32px 28px", transition: "border-color 0.3s, transform 0.3s" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateY(-4px)"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateY(0)"; }}>
-              <img src={icons[i]} alt={m.title} style={{ width: 44, height: 44, marginBottom: 16, objectFit: "contain" }} onError={e => e.target.style.display = "none"} />
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateY(0)"; }}>
+              <div style={{ marginBottom: 16 }}>{icons[i]}</div>
               <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 20, color: "#1DB89A", textTransform: "uppercase", margin: "0 0 12px" }}>{m.title}</h3>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, lineHeight: 1.7, color: "#6a9e98", margin: 0 }}>{m.desc}</p>
             </article>
