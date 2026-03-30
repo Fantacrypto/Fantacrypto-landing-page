@@ -268,7 +268,7 @@ function LangToggle({ lang, setLang }) {
   return (
     <button
       onClick={() => setLang(lang === "it" ? "en" : "it")}
-      style={{ background: "transparent", border: "1px solid #1DB89A55", borderRadius: 6, padding: "6px 12px", cursor: "pointer", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: "0.1em", color: "#1DB89A", transition: "all 0.2s", display: "flex", alignItems: "center", gap: 6 }}
+      style={{ background: "transparent", border: "1px solid #1DB89A55", borderRadius: 6, padding: "6px 12px", cursor: "pointer", fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: "0.1em", color: "#1DB89A", transition: "all 0.2s", display: "flex", alignItems: "center", gap: 6 }}
       onMouseEnter={e => { e.currentTarget.style.background = "#1DB89A22"; e.currentTarget.style.borderColor = "#1DB89A"; }}
       onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#1DB89A55"; }}
       aria-label={lang === "it" ? "Switch to English" : "Passa all'italiano"}
@@ -303,8 +303,8 @@ function Navbar({ lang, setLang }) {
           <div style={{ display: "none", alignItems: "center", gap: 10 }}>
             <CoinLogo size={40} />
             <div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em", lineHeight: 1.1 }}>FANTACRYPTO</div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em" }}>LEAGUE.IO</div>
+              <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em", lineHeight: 1.1 }}>FANTACRYPTO</div>
+              <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em" }}>LEAGUE.IO</div>
             </div>
           </div>
         </a>
@@ -312,7 +312,7 @@ function Navbar({ lang, setLang }) {
         <ul role="list" style={{ display: "flex", gap: 28, listStyle: "none", margin: 0, padding: 0, alignItems: "center" }} className="desktop-nav">
           {navLinks.map(link => (
             <li key={link.href}>
-              <a href={link.href} style={{ color: "#a0c8c2", textDecoration: "none", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: 15, letterSpacing: "0.06em", textTransform: "uppercase", transition: "color 0.2s" }}
+              <a href={link.href} style={{ color: "#a0c8c2", textDecoration: "none", fontFamily: "'League Spartan', sans-serif", fontWeight: 600, fontSize: 15, letterSpacing: "0.06em", textTransform: "uppercase", transition: "color 0.2s" }}
                 onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#a0c8c2"}>
                 {link.label}
               </a>
@@ -320,7 +320,7 @@ function Navbar({ lang, setLang }) {
           ))}
           <li><LangToggle lang={lang} setLang={setLang} /></li>
           <li>
-            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "10px 24px", borderRadius: 6, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
+            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "10px 24px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: 14, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
               onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }} onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>
               {t.play}
             </a>
@@ -341,13 +341,13 @@ function Navbar({ lang, setLang }) {
           <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 16 }}>
             {navLinks.map(link => (
               <li key={link.href}>
-                <a href={link.href} onClick={() => setMenuOpen(false)} style={{ color: "#a0c8c2", textDecoration: "none", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                <a href={link.href} onClick={() => setMenuOpen(false)} style={{ color: "#a0c8c2", textDecoration: "none", fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                   {link.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href="https://www.fantacryptoleague.io/" onClick={() => setMenuOpen(false)} style={{ background: "#1DB89A", color: "#041410", padding: "12px 28px", borderRadius: 6, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", marginTop: 8 }}>
+              <a href="https://www.fantacryptoleague.io/" onClick={() => setMenuOpen(false)} style={{ background: "#1DB89A", color: "#041410", padding: "12px 28px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", marginTop: 8 }}>
                 {t.play}
               </a>
             </li>
@@ -367,21 +367,21 @@ function Hero({ lang }) {
 
       <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", gap: 64, flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 480px", minWidth: 0 }}>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(52px, 9vw, 104px)", color: "#fff", lineHeight: 0.95, letterSpacing: "-0.02em", margin: "0 0 32px", textTransform: "uppercase" }}>
+          <h1 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(52px, 9vw, 104px)", color: "#fff", lineHeight: 0.95, letterSpacing: "-0.02em", margin: "0 0 32px", textTransform: "uppercase" }}>
             {t.line1}<br /><span style={{ color: "#1DB89A" }}>{t.line2}</span><br />{t.line3}
           </h1>
-          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(20px, 2.5vw, 28px)", color: "#a0c8c2", letterSpacing: "0.04em", marginBottom: 12, textTransform: "uppercase", lineHeight: 1.4 }}>
+          <p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: "clamp(20px, 2.5vw, 28px)", color: "#a0c8c2", letterSpacing: "0.04em", marginBottom: 12, textTransform: "uppercase", lineHeight: 1.4 }}>
             {t.sub1}<br />{t.sub2}<br />{t.sub3}
           </p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", marginBottom: 48, letterSpacing: "0.05em" }}>{t.micro}</p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "16px 36px", borderRadius: 6, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
+            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "16px 36px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
               onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }} onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>
               {t.cta1}
             </a>
             <button onClick={() => document.getElementById("partner-form").scrollIntoView({ behavior: "smooth", block: "start" })}
-              style={{ border: "1px solid #1DB89A55", color: "#1DB89A", padding: "16px 36px", borderRadius: 6, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", background: "transparent", cursor: "pointer", transition: "all 0.3s" }}
+              style={{ border: "1px solid #1DB89A55", color: "#1DB89A", padding: "16px 36px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", background: "transparent", cursor: "pointer", transition: "all 0.3s" }}
               onMouseEnter={e => { e.target.style.background = "#1DB89A11"; e.target.style.borderColor = "#1DB89A"; }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "#1DB89A55"; }}>
               {t.cta2}
             </button>
@@ -390,8 +390,8 @@ function Hero({ lang }) {
           <div style={{ display: "flex", gap: 40, marginTop: 56, flexWrap: "wrap" }}>
             {[{ num: "365", label: t.stat1 }, { num: "∞", label: t.stat2 }].map(stat => (
               <div key={stat.label}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 3vw, 44px)", color: "#1DB89A", lineHeight: 1 }}>{stat.num}</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#5a8a85", marginTop: 4 }}>{stat.label}</div>
+                <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 3vw, 44px)", color: "#1DB89A", lineHeight: 1 }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: "#5a8a85", marginTop: 4 }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -432,25 +432,25 @@ function ComeFunziona({ lang }) {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 80 }}>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 60px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
+          <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 60px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
             {t.title} <span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
           </h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 2 }}>
           {t.steps.map((step, i) => (
             <article key={i} style={{ background: i === 1 ? "linear-gradient(180deg, #1DB89A11, #1DB89A08)" : "transparent", border: "1px solid #1DB89A22", borderRadius: 12, padding: "48px 36px", position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", top: 16, right: 20, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 80, color: "#1DB89A08", lineHeight: 1, userSelect: "none" }} aria-hidden="true">0{i + 1}</div>
+              <div style={{ position: "absolute", top: 16, right: 20, fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 80, color: "#1DB89A08", lineHeight: 1, userSelect: "none" }} aria-hidden="true">0{i + 1}</div>
               <div style={{ width: 200, height: 200, border: "none", borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "#06231e", marginBottom: 20, overflow: "hidden" }}>
                 <img src={stepVisuals[i].src} alt={stepVisuals[i].name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={e => e.target.style.display = "none"} />
               </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#5fa69d", marginBottom: 12 }}>{stepVisuals[i].name}</div>
+              <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: "#5fa69d", marginBottom: 12 }}>{stepVisuals[i].name}</div>
               <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", marginBottom: 12 }}>{step.label}</div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.7, color: "#7ab0aa", margin: 0 }}>{step.desc}</p>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 17, lineHeight: 1.7, color: "#7ab0aa", margin: 0 }}>{step.desc}</p>
             </article>
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: 64 }}>
-          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(20px, 2.5vw, 28px)", color: "#fff", textTransform: "uppercase", lineHeight: 1.4, margin: 0 }}>
+          <p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: "clamp(20px, 2.5vw, 28px)", color: "#fff", textTransform: "uppercase", lineHeight: 1.4, margin: 0 }}>
             {t.closing1}<br /><span style={{ color: "#1DB89A" }}>{t.closing2}</span>
           </p>
         </div>
@@ -556,10 +556,10 @@ function RealMarket({ lang }) {
 
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
+        <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 56, lineHeight: 1.7 }}>{t.desc}</p>
+        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 56, lineHeight: 1.7 }}>{t.desc}</p>
 
         {/* Card fluttuanti sopra il plexus */}
         <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap", marginBottom: 56 }}>
@@ -570,7 +570,7 @@ function RealMarket({ lang }) {
               border: "1px solid #1DB89A55",
               borderRadius: 16,
               padding: "24px 36px",
-              fontFamily: "'Barlow Condensed', sans-serif",
+              fontFamily: "'League Spartan', sans-serif",
               fontWeight: 700, fontSize: 18,
               color: "#1DB89A", letterSpacing: "0.08em", textTransform: "uppercase",
               boxShadow: "0 8px 32px #00000066, 0 0 20px #1DB89A11",
@@ -630,7 +630,7 @@ function Skill({ lang }) {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
+          <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
             {t.title} <span style={{ color: "#1DB89A" }}>{t.highlight}</span> {t.title2}
           </h2>
         </div>
@@ -645,23 +645,23 @@ function Skill({ lang }) {
           {/* Card 1 — Timing */}
           <div style={{ background: "linear-gradient(135deg, #0d2e2a, #091e1a)", border: "1px solid #1DB89A22", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
             {bentoItems[0].icon}
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[0].label}</div>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[0].desc}</p>
+            <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[0].label}</div>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[0].desc}</p>
           </div>
 
           {/* Card 2 — Analysis */}
           <div style={{ background: "linear-gradient(135deg, #112e28, #0a2220)", border: "1px solid #1DB89A33", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
             {bentoItems[1].icon}
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[1].label}</div>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[1].desc}</p>
+            <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[1].label}</div>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[1].desc}</p>
           </div>
 
           {/* Card 3 — Risk management — full width */}
           <div style={{ gridColumn: "1 / -1", background: "linear-gradient(135deg, #1DB89A18, #0a2220)", border: "1px solid #1DB89A44", borderRadius: 20, padding: "40px 36px", display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
             <div style={{ flexShrink: 0 }}>{bentoItems[2].icon}</div>
             <div style={{ flex: 1, minWidth: 200 }}>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 26, color: "#1DB89A", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 10 }}>{bentoItems[2].label}</div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "#7ab0aa", lineHeight: 1.7, margin: 0 }}>{bentoItems[2].desc}</p>
+              <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 26, color: "#1DB89A", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 10 }}>{bentoItems[2].label}</div>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#7ab0aa", lineHeight: 1.7, margin: 0 }}>{bentoItems[2].desc}</p>
             </div>
           </div>
         </div>
@@ -702,7 +702,7 @@ function Modalita({ lang }) {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
+          <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
             {t.title} <span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
           </h2>
         </div>
@@ -712,8 +712,8 @@ function Modalita({ lang }) {
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#1DB89A66"; e.currentTarget.style.transform = "translateY(-4px)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "#1DB89A22"; e.currentTarget.style.transform = "translateY(0)"; }}>
               <div style={{ marginBottom: 16 }}>{icons[i]}</div>
-              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 20, color: "#1DB89A", textTransform: "uppercase", margin: "0 0 12px" }}>{m.title}</h3>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, lineHeight: 1.7, color: "#6a9e98", margin: 0 }}>{m.desc}</p>
+              <h3 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: 20, color: "#1DB89A", textTransform: "uppercase", margin: "0 0 12px" }}>{m.title}</h3>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 15, lineHeight: 1.7, color: "#6a9e98", margin: 0 }}>{m.desc}</p>
             </article>
           ))}
         </div>
@@ -738,7 +738,7 @@ function LevelUp({ lang }) {
     <section id="level-up" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 56px", lineHeight: 1.05 }}>
+        <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 56px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
 
@@ -757,7 +757,7 @@ function LevelUp({ lang }) {
               pointerEvents: active === i ? "auto" : "none",
               boxShadow: active === i ? "0 0 32px #1DB89A18" : "none",
             }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(20px, 3vw, 26px)", color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+              <span style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: "clamp(20px, 3vw, 26px)", color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                 {item}
               </span>
             </div>
@@ -788,13 +788,13 @@ function NoMoney({ lang }) {
     <section id="no-money" style={{ padding: "120px 24px", background: "linear-gradient(135deg, #061c18, #0a2e2a)" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
+        <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
+        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
         <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
           {t.items.map((item, i) => (
-            <div key={i} style={{ background: "#1DB89A", color: "#041410", borderRadius: 8, padding: "14px 32px", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item}</div>
+            <div key={i} style={{ background: "#1DB89A", color: "#041410", borderRadius: 8, padding: "14px 32px", fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item}</div>
           ))}
         </div>
       </div>
@@ -808,9 +808,9 @@ function Vision({ lang }) {
     <section id="vision" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>{t.title}</h2>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 20, color: "#7ab0aa", lineHeight: 1.8, maxWidth: 640, margin: "0 auto 24px" }}>{t.desc}</p>
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 24, color: "#fff", textTransform: "uppercase", marginBottom: 12 }}>{t.sub}</p>
+        <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 64px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>{t.title}</h2>
+        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, color: "#7ab0aa", lineHeight: 1.8, maxWidth: 640, margin: "0 auto 24px" }}>{t.desc}</p>
+        <p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 24, color: "#fff", textTransform: "uppercase", marginBottom: 12 }}>{t.sub}</p>
         <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 14, color: "#1DB89A", letterSpacing: "0.05em" }}>{t.micro}</p>
       </div>
     </section>
@@ -823,8 +823,8 @@ function PartnerFormComponent({ lang }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
 
-  const inputStyle = { width: "100%", padding: "12px 16px", background: "#061c18", border: "1px solid #1DB89A33", borderRadius: 8, color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: 15, outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" };
-  const labelStyle = { fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: 6 };
+  const inputStyle = { width: "100%", padding: "12px 16px", background: "#061c18", border: "1px solid #1DB89A33", borderRadius: 8, color: "#fff", fontFamily: "'Montserrat', sans-serif", fontSize: 15, outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" };
+  const labelStyle = { fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: 6 };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); setError(false);
@@ -834,7 +834,7 @@ function PartnerFormComponent({ lang }) {
     } catch { setError(true); }
   };
 
-  if (sent) return <div style={{ textAlign: "center", padding: "32px 0" }}><div style={{ fontSize: 48, marginBottom: 16 }}>✅</div><p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 22, color: "#1DB89A" }}>{t.success}</p></div>;
+  if (sent) return <div style={{ textAlign: "center", padding: "32px 0" }}><div style={{ fontSize: 48, marginBottom: 16 }}>✅</div><p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 22, color: "#1DB89A" }}>{t.success}</p></div>;
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -842,13 +842,13 @@ function PartnerFormComponent({ lang }) {
       <div><label style={labelStyle}>{t.emailLabel}</label><input type="email" required placeholder={t.emailPlaceholder} value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} style={inputStyle} onFocus={e => e.target.style.borderColor = "#1DB89A"} onBlur={e => e.target.style.borderColor = "#1DB89A33"} /></div>
       <div><label style={labelStyle}>{t.companyLabel}</label><input type="text" placeholder={t.companyPlaceholder} value={form.azienda} onChange={e => setForm({ ...form, azienda: e.target.value })} style={inputStyle} onFocus={e => e.target.style.borderColor = "#1DB89A"} onBlur={e => e.target.style.borderColor = "#1DB89A33"} /></div>
       <div><label style={labelStyle}>{t.messageLabel}</label><textarea rows={4} placeholder={t.messagePlaceholder} value={form.messaggio} onChange={e => setForm({ ...form, messaggio: e.target.value })} style={{ ...inputStyle, resize: "vertical", minHeight: 100 }} onFocus={e => e.target.style.borderColor = "#1DB89A"} onBlur={e => e.target.style.borderColor = "#1DB89A33"} /></div>
-      {error && <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#ff6b6b", margin: 0 }}>{t.error}</p>}
+      {error && <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#ff6b6b", margin: 0 }}>{t.error}</p>}
       <div>
-        <button type="submit" style={{ background: "#1DB89A", color: "#041410", padding: "14px 32px", borderRadius: 8, border: "none", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}
+        <button type="submit" style={{ background: "#1DB89A", color: "#041410", padding: "14px 32px", borderRadius: 8, border: "none", fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}
           onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }} onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>
           {t.submit}
         </button>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#5a8a85", marginTop: 10 }}>{t.note}</p>
+        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: "#5a8a85", marginTop: 10 }}>{t.note}</p>
       </div>
     </form>
   );
@@ -861,10 +861,10 @@ function Partnership({ lang }) {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", textTransform: "uppercase", margin: "0 0 24px", lineHeight: 1.05 }}>
+          <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", textTransform: "uppercase", margin: "0 0 24px", lineHeight: 1.05 }}>
             {t.title} <span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "#6a9e98", maxWidth: 600, margin: "0 auto", lineHeight: 1.8 }}>
+          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 17, color: "#6a9e98", maxWidth: 600, margin: "0 auto", lineHeight: 1.8 }}>
             {t.desc.split("\n").map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)}
           </p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", marginTop: 16, letterSpacing: "0.05em" }}>{t.micro}</p>
@@ -883,11 +883,11 @@ function CtaFinale({ lang }) {
     <section style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", background: "linear-gradient(135deg, #1DB89A, #0D8070)", borderRadius: 20, padding: "80px 48px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, opacity: 0.08, backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none" }} aria-hidden="true" />
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 5vw, 60px)", color: "#041410", textTransform: "uppercase", margin: "0 0 16px", lineHeight: 1.05, position: "relative" }}>
+        <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(32px, 5vw, 60px)", color: "#041410", textTransform: "uppercase", margin: "0 0 16px", lineHeight: 1.05, position: "relative" }}>
           {t.title}<br />{t.title2}
         </h2>
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 28, color: "#082820", marginBottom: 40, position: "relative", textTransform: "uppercase" }}>{t.sub}</p>
-        <a href="https://www.fantacryptoleague.io/" style={{ background: "#041410", color: "#1DB89A", padding: "18px 48px", borderRadius: 8, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", position: "relative", transition: "transform 0.2s" }}
+        <p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 28, color: "#082820", marginBottom: 40, position: "relative", textTransform: "uppercase" }}>{t.sub}</p>
+        <a href="https://www.fantacryptoleague.io/" style={{ background: "#041410", color: "#1DB89A", padding: "18px 48px", borderRadius: 8, fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", position: "relative", transition: "transform 0.2s" }}
           onMouseEnter={e => e.target.style.transform = "scale(1.04)"} onMouseLeave={e => e.target.style.transform = "scale(1)"}>
           {t.btn}
         </a>
@@ -905,20 +905,20 @@ function Footer({ lang }) {
           <div style={{ maxWidth: 300 }}>
             <a href="#hero" style={{ display: "inline-block", marginBottom: 16, textDecoration: "none" }}>
               <img src="/FantacryptoWhite.svg" alt="Fantacrypto" style={{ height: 40, width: "auto" }} onError={e => { e.target.style.display = "none"; e.target.nextSibling.style.display = "block"; }} />
-              <div style={{ display: "none" }}><div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em" }}>FANTACRYPTO</div></div>
+              <div style={{ display: "none" }}><div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "0.08em" }}>FANTACRYPTO</div></div>
             </a>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#3d6e6a", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
           </div>
           <nav>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.links}</div>
+            <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.links}</div>
             <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {t.linkItems.map(l => (
-                <li key={l.href}><a href={l.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{l.label}</a></li>
+                <li key={l.href}><a href={l.href} style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{l.label}</a></li>
               ))}
             </ul>
           </nav>
           <div>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.social}</div>
+            <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.social}</div>
             <div style={{ display: "flex", gap: 12, marginBottom: 32 }}>
               {SOCIAL_LINKS.map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} style={{ width: 44, height: 44, background: "#0d2e2a", border: "1px solid #1DB89A22", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "#1DB89A", textDecoration: "none", transition: "border-color 0.2s, background 0.2s" }}
@@ -927,13 +927,13 @@ function Footer({ lang }) {
                 </a>
               ))}
             </div>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{t.contact}</div>
-            <a href="mailto:infofantacrypto@gmail.com" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>infofantacrypto@gmail.com</a>
-            <a href="https://t.me/fantacrypto" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{t.telegram}</a>
+            <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 12, color: "#1DB89A", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{t.contact}</div>
+            <a href="mailto:infofantacrypto@gmail.com" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", display: "block", marginBottom: 6, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>infofantacrypto@gmail.com</a>
+            <a href="https://t.me/fantacrypto" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#3d6e6a", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#1DB89A"} onMouseLeave={e => e.target.style.color = "#3d6e6a"}>{t.telegram}</a>
           </div>
         </div>
         <div style={{ borderTop: "1px solid #1DB89A11", paddingTop: 24, display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#2a5550", margin: 0 }}>{t.copy}</p>
+          <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: "#2a5550", margin: 0 }}>{t.copy}</p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1a4440", margin: 0 }}>{t.tagline}</p>
         </div>
       </div>
@@ -947,7 +947,7 @@ export default function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800;900&family=Montserrat:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
         *, *::before, *::after { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { margin: 0; background: #041410; }
@@ -958,7 +958,7 @@ export default function App() {
         a:focus-visible { outline: 2px solid #1DB89A; outline-offset: 3px; border-radius: 4px; }
       `}</style>
 
-      <a href="#main-content" style={{ position: "absolute", left: -9999, top: 0, background: "#1DB89A", color: "#041410", padding: "8px 16px", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, zIndex: 9999, textDecoration: "none" }}
+      <a href="#main-content" style={{ position: "absolute", left: -9999, top: 0, background: "#1DB89A", color: "#041410", padding: "8px 16px", fontFamily: "'League Spartan', sans-serif", fontWeight: 700, zIndex: 9999, textDecoration: "none" }}
         onFocus={e => e.target.style.left = "0"} onBlur={e => e.target.style.left = "-9999px"}>
         {T[lang].skip}
       </a>
