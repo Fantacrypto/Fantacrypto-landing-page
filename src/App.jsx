@@ -75,7 +75,7 @@ const T = {
     },
     cta: {
       title: "PENSI DI ESSERE", title2: "PIÙ BRAVO DEGLI ALTRI?",
-      sub: "Dimostralo.", btn: "Entra in partita →",
+      sub: "Dimostralo.", btn: "Entra in partita",
     },
     footer: {
       desc: "Il fantasy game sulle criptovalute basato su dati reali di mercato.",
@@ -167,7 +167,7 @@ const T = {
     },
     cta: {
       title: "THINK YOU'RE BETTER", title2: "THAN THE OTHERS?",
-      sub: "Prove it.", btn: "Enter the game →",
+      sub: "Prove it.", btn: "Enter the game",
     },
     footer: {
       desc: "The fantasy game on crypto based on real market data.",
@@ -194,6 +194,57 @@ const SOCIAL_LINKS = [
   { label: "TikTok", href: "https://www.tiktok.com/@fantacrypto.io?_r=1&_t=ZN-952DMsuTnhG", svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg> },
   { label: "Telegram", href: "https://t.me/fantacrypto", svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> },
 ];
+
+// ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
+function AnimatedBorderBtn({ href, children, size = "large" }) {
+  const pad = size === "small" ? "10px 24px" : "16px 40px";
+  const fs = size === "small" ? 14 : "clamp(16px, 1.5vw, 19px)";
+  return (
+    <a href={href} style={{ position: "relative", display: "inline-block", textDecoration: "none", borderRadius: 10, padding: 3 }}>
+      {/* Glow esterno */}
+      <span aria-hidden="true" style={{
+        position: "absolute", inset: -4, borderRadius: 14,
+        background: "conic-gradient(from var(--angle), #1DB89A, #5fffda, #fff, #1DB89A, #0D8070, #1DB89A)",
+        animation: "spinBorder 2s linear infinite",
+        filter: "blur(8px)",
+        opacity: 0.7,
+        zIndex: 0,
+      }} />
+      {/* Bordo netto */}
+      <span aria-hidden="true" style={{
+        position: "absolute", inset: 0, borderRadius: 10,
+        background: "conic-gradient(from var(--angle), #1DB89A, #5fffda, #fff, #1DB89A, #0D8070, #1DB89A)",
+        animation: "spinBorder 2s linear infinite",
+        zIndex: 1,
+      }} />
+      {/* Inner button */}
+      <span style={{
+        position: "relative", zIndex: 2,
+        display: "block",
+        background: "#041410",
+        borderRadius: 8,
+        padding: pad,
+        fontFamily: "'League Spartan', sans-serif",
+        fontWeight: 900,
+        fontSize: fs,
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "#fff",
+        transition: "color 0.2s, background 0.2s",
+        whiteSpace: "nowrap",
+      }}
+        onMouseEnter={e => { e.currentTarget.style.background = "#0a2e2a"; }}
+        onMouseLeave={e => { e.currentTarget.style.background = "#041410"; }}
+      >
+        {children}
+      </span>
+      <style>{`
+        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+        @keyframes spinBorder { to { --angle: 360deg; } }
+      `}</style>
+    </a>
+  );
+}
 
 function CoinLogo({ size = 40 }) {
   return (
@@ -320,10 +371,7 @@ function Navbar({ lang, setLang }) {
           ))}
           <li><LangToggle lang={lang} setLang={setLang} /></li>
           <li>
-            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "10px 24px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: 14, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
-              onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }} onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>
-              {t.play}
-            </a>
+            <AnimatedBorderBtn href="https://www.fantacryptoleague.io/" size="small">{t.play}</AnimatedBorderBtn>
           </li>
         </ul>
 
@@ -347,9 +395,7 @@ function Navbar({ lang, setLang }) {
               </li>
             ))}
             <li>
-              <a href="https://www.fantacryptoleague.io/" onClick={() => setMenuOpen(false)} style={{ background: "#1DB89A", color: "#041410", padding: "12px 28px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: 16, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", marginTop: 8 }}>
-                {t.play}
-              </a>
+              <AnimatedBorderBtn href="https://www.fantacryptoleague.io/">{t.play}</AnimatedBorderBtn>
             </li>
           </ul>
         </div>
@@ -375,11 +421,8 @@ function Hero({ lang }) {
           </p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", marginBottom: 48, letterSpacing: "0.05em" }}>{t.micro}</p>
 
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="https://www.fantacryptoleague.io/" style={{ background: "#1DB89A", color: "#041410", padding: "16px 36px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 800, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", transition: "transform 0.2s, box-shadow 0.2s", display: "inline-block" }}
-              onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 24px #1DB89A44"; }} onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>
-              {t.cta1}
-            </a>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+            <AnimatedBorderBtn href="https://www.fantacryptoleague.io/">{t.cta1}</AnimatedBorderBtn>
             <button onClick={() => document.getElementById("partner-form").scrollIntoView({ behavior: "smooth", block: "start" })}
               style={{ border: "1px solid #1DB89A55", color: "#1DB89A", padding: "16px 36px", borderRadius: 6, fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: "clamp(16px, 1.5vw, 18px)", letterSpacing: "0.1em", textTransform: "uppercase", background: "transparent", cursor: "pointer", transition: "all 0.3s" }}
               onMouseEnter={e => { e.target.style.background = "#1DB89A11"; e.target.style.borderColor = "#1DB89A"; }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "#1DB89A55"; }}>
@@ -784,19 +827,65 @@ function LevelUp({ lang }) {
 
 function NoMoney({ lang }) {
   const t = T[lang].noMoney;
+  const [current, setCurrent] = useState(0);
+  const [show, setShow] = useState(true);
+  const sectionRef = React.useRef(null);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.4 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    setCurrent(0);
+    setShow(true);
+  }, [started, lang]);
+
+  useEffect(() => {
+    if (!started) return;
+    const showTimer = setTimeout(() => setShow(false), 2800);
+    const nextTimer = setTimeout(() => {
+      setCurrent(c => (c + 1) % t.items.length);
+      setShow(true);
+    }, 3400);
+    return () => { clearTimeout(showTimer); clearTimeout(nextTimer); };
+  }, [current, started, lang]);
+
   return (
-    <section id="no-money" style={{ padding: "120px 24px", background: "linear-gradient(135deg, #061c18, #0a2e2a)" }}>
+    <section ref={sectionRef} id="no-money" style={{ padding: "120px 24px", background: "linear-gradient(135deg, #061c18, #0a2e2a)" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
         <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: "0 0 40px", lineHeight: 1.05 }}>
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
-        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 40, lineHeight: 1.7 }}>{t.desc}</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
-          {t.items.map((item, i) => (
-            <div key={i} style={{ background: "#1DB89A", color: "#041410", borderRadius: 8, padding: "14px 32px", fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item}</div>
-          ))}
+        <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 64, lineHeight: 1.7 }}>{t.desc}</p>
+
+        {/* Parola singola animata */}
+        <div style={{ height: 100, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{
+            fontFamily: "'League Spartan', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(48px, 8vw, 80px)",
+            color: "#fff",
+            textTransform: "uppercase",
+            letterSpacing: "0.06em",
+            opacity: show ? 1 : 0,
+            transform: show ? "scale(1)" : "scale(0.7)",
+            transition: "opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}>
+            {t.items[current]}
+          </div>
         </div>
+
+
       </div>
     </section>
   );
@@ -887,10 +976,7 @@ function CtaFinale({ lang }) {
           {t.title}<br />{t.title2}
         </h2>
         <p style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 28, color: "#082820", marginBottom: 40, position: "relative", textTransform: "uppercase" }}>{t.sub}</p>
-        <a href="https://www.fantacryptoleague.io/" style={{ background: "#041410", color: "#1DB89A", padding: "18px 48px", borderRadius: 8, fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 20, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", position: "relative", transition: "transform 0.2s" }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.04)"} onMouseLeave={e => e.target.style.transform = "scale(1)"}>
-          {t.btn}
-        </a>
+        <AnimatedBorderBtn href="https://www.fantacryptoleague.io/">{t.btn}</AnimatedBorderBtn>
       </div>
     </section>
   );
