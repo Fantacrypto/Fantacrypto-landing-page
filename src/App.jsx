@@ -7,7 +7,7 @@ const T = {
     hero: {
       line1: "IL MERCATO È", line2: "IL TUO CAMPO", line3: "DA GIOCO.",
       sub1: "Costruisci la tua squadra di crypto.",
-      sub2: "Batti gli altri.", sub3: "Scala la classifica.",
+      sub2: "Supera i tuoi avversari.", sub3: "Punta alla vetta.",
       micro: "👉 Ogni scelta conta.",
       cta1: "Gioca Ora", cta2: "Vuoi diventare Partner?",
       stat1: "Giorni l'anno", stat2: "Leghe disponibili",
@@ -25,7 +25,7 @@ const T = {
     realMarket: {
       label: "Dati reali", title: "REAL MARKET.", titleHighlight: "REAL IMPACT.",
       desc: "Ogni risultato è basato su dati reali:",
-      items: ["Prezzi di mercato", "Performance degli asset", "Dinamiche reali"],
+      items: ["Prezzi live", "Performance degli asset", "Volatilità del mercato"],
       micro: "👉 Nessuna simulazione. Solo realtà.",
     },
     skill: {
@@ -39,13 +39,13 @@ const T = {
       items: [
         { title: "Leghe private", desc: "Sfida i tuoi amici in una lega personale." },
         { title: "Classifiche globali", desc: "Competi con una community più ampia." },
-        { title: "Tornei a tempo", desc: "Ogni giornata è una nuova partita." },
+        { title: "Tornei a tempo", desc: "Round rapidi con obiettivi sempre diversi." },
       ],
-      micro: "👉 Ogni giornata è una nuova partita.",
+      micro: "👉 Scegli la modalità che si adatta al tuo stile.",
     },
     levelUp: {
       label: "Progressione", title: "PIÙ GIOCHI,", titleHighlight: "PIÙ MIGLIORI.",
-      items: ["Capisci i trend", "Anticipi i movimenti", "Affini la strategia"],
+      items: ["Leggi meglio i trend", "Anticipi i movimenti", "Affini il tuo metodo"],
       micro: "👉 Questo è allenamento reale.",
     },
     noMoney: {
@@ -56,8 +56,8 @@ const T = {
     vision: {
       label: "Vision", title: "VISION",
       desc: "Stiamo trasformando il modo in cui le persone entrano nel mondo crypto.",
-      sub: "Non più solo trading.",
-      micro: "👉 Esperienza.",
+      sub: "Non più solo trading, ma decisioni consapevoli.",
+      micro: "👉 Formazione attraverso il gioco.",
     },
     partnership: {
       label: "Partnership", title: "VUOI DIVENTARE", titleHighlight: "PARTNER?",
@@ -99,7 +99,7 @@ const T = {
     hero: {
       line1: "THE MARKET IS", line2: "YOUR PLAYING", line3: "FIELD.",
       sub1: "Build your crypto team.",
-      sub2: "Beat the others.", sub3: "Climb the leaderboard.",
+      sub2: "Outplay your rivals.", sub3: "Aim for the top.",
       micro: "👉 Every choice matters.",
       cta1: "Play Now", cta2: "Become a Partner",
       stat1: "Days a year", stat2: "Available leagues",
@@ -117,7 +117,7 @@ const T = {
     realMarket: {
       label: "Real data", title: "REAL MARKET.", titleHighlight: "REAL IMPACT.",
       desc: "Every result is based on real data:",
-      items: ["Market prices", "Asset performance", "Real dynamics"],
+      items: ["Live prices", "Asset performance", "Market volatility"],
       micro: "👉 No simulation. Pure reality.",
     },
     skill: {
@@ -131,13 +131,13 @@ const T = {
       items: [
         { title: "Private leagues", desc: "Challenge your friends in a personal league." },
         { title: "Global rankings", desc: "Compete against a wider community." },
-        { title: "Timed tournaments", desc: "Every matchday is a brand new game." },
+        { title: "Timed tournaments", desc: "Fast rounds with changing objectives." },
       ],
-      micro: "👉 Every matchday is a brand new game.",
+      micro: "👉 Pick the mode that matches your style.",
     },
     levelUp: {
       label: "Progression", title: "THE MORE YOU PLAY,", titleHighlight: "THE BETTER YOU GET.",
-      items: ["You understand trends", "You anticipate moves", "You sharpen your strategy"],
+      items: ["You read trends better", "You anticipate moves", "You refine your approach"],
       micro: "👉 This is real training.",
     },
     noMoney: {
@@ -148,8 +148,8 @@ const T = {
     vision: {
       label: "Vision", title: "VISION",
       desc: "We are transforming the way people enter the crypto world.",
-      sub: "Not just trading anymore.",
-      micro: "👉 Experience.",
+      sub: "Not just trading anymore, but informed decisions.",
+      micro: "👉 Learning through gameplay.",
     },
     partnership: {
       label: "Partnership", title: "WANT TO BECOME", titleHighlight: "A PARTNER?",
