@@ -62,6 +62,7 @@ const T = {
     partnership: {
       label: "Partnership", title: "VUOI DIVENTARE", titleHighlight: "PARTNER?",
       desc: "Collaborazioni, sponsorizzazioni o integrazioni.\nFantacrypto è una piattaforma in crescita con una community verticale nel mondo crypto.",
+      partnersTitle: "Partner attuali",
       micro: "👉 Scrivici e vediamo cosa possiamo costruire insieme.",
     },
     form: {
@@ -154,6 +155,7 @@ const T = {
     partnership: {
       label: "Partnership", title: "WANT TO BECOME", titleHighlight: "A PARTNER?",
       desc: "Collaborations, sponsorships or integrations.\nFantacrypto is a growing platform with a vertical community in the crypto world.",
+      partnersTitle: "Current partners",
       micro: "👉 Write to us and let's see what we can build together.",
     },
     form: {
@@ -193,6 +195,10 @@ const SOCIAL_LINKS = [
   { label: "X", href: "https://x.com/FCrypto52502", svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
   { label: "TikTok", href: "https://www.tiktok.com/@fantacrypto.io?_r=1&_t=ZN-952DMsuTnhG", svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg> },
   { label: "Telegram", href: "https://t.me/fantacrypto", svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> },
+];
+
+const PARTNERS = [
+  { name: "OfficinaDeFi", logo: "/officina-defi-logo.svg?v=2" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
@@ -957,6 +963,18 @@ function Partnership({ lang }) {
             {t.desc.split("\n").map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)}
           </p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", marginTop: 16, letterSpacing: "0.05em" }}>{t.micro}</p>
+        </div>
+        <div style={{ margin: "0 auto 36px", maxWidth: 700 }}>
+          <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center", marginBottom: 16 }}>
+            {t.partnersTitle}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
+            {PARTNERS.map((partner) => (
+              <div key={partner.name} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={partner.logo} alt={`${partner.name} logo`} style={{ maxWidth: 170, width: "100%", height: 42, objectFit: "contain" }} />
+              </div>
+            ))}
+          </div>
         </div>
         <div id="partner-form" style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 16, padding: "48px 40px", maxWidth: 640, margin: "0 auto" }}>
           <PartnerFormComponent lang={lang} />
