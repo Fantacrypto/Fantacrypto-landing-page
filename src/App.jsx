@@ -198,7 +198,7 @@ const SOCIAL_LINKS = [
 ];
 
 const PARTNERS = [
-  { name: "OfficinaDeFi", logo: "/officina-defi-logo.svg?v=2" },
+  { name: "OfficinaDeFi", logo: "/officina-defi-logo-2026.svg" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
