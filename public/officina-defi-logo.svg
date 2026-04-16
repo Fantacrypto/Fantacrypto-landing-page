@@ -1,0 +1,9 @@
+<svg width="420" height="92" viewBox="0 0 420 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <rect x="2" y="2" width="416" height="88" rx="14" fill="#031A18" stroke="#1FD2BC" stroke-width="4"/>
+    <circle cx="52" cy="46" r="26" fill="#0A3A36"/>
+    <circle cx="52" cy="46" r="17" fill="#0E7167"/>
+    <path d="M43.5 39.5C43.5 36.4624 45.9624 34 49 34H63.5V41H49C48.1716 41 47.5 41.6716 47.5 42.5C47.5 43.3284 48.1716 44 49 44H57.8C60.8376 44 63.3 46.4624 63.3 49.5C63.3 52.5376 60.8376 55 57.8 55H40.5V48H57.8C58.6284 48 59.3 47.3284 59.3 46.5C59.3 45.6716 58.6284 45 57.8 45H49C45.9624 45 43.5 42.5376 43.5 39.5Z" fill="#1FD2BC"/>
+    <text x="91" y="57" fill="#F5FEFC" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="700">OfficinaDeFi</text>
+  </g>
+</svg>
