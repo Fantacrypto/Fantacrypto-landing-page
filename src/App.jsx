@@ -198,7 +198,7 @@ const SOCIAL_LINKS = [
 ];
 
 const PARTNERS = [
-  { name: "OfficinaDeFi", logo: "/officina-defi-logo.svg" },
+  { id: "officina-defi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi", href: "https://www.officinadefi.com/" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
@@ -970,9 +970,11 @@ function Partnership({ lang }) {
           </div>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
             {PARTNERS.map((partner) => (
-              <div key={partner.name} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img src={partner.logo} alt={`${partner.name} logo`} style={{ maxWidth: 170, width: "100%", height: 42, objectFit: "contain" }} />
-              </div>
+              <a key={partner.id} href={partner.href} target="_blank" rel="noreferrer" style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, width: 240, height: 240, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "transform 0.2s, border-color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = "#1DB89A66"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "#1DB89A33"; }}>
+                <img src={partner.logo} alt={partner.alt} style={{ width: 170, height: 170, objectFit: "contain" }} />
+              </a>
             ))}
           </div>
         </div>
