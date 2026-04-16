@@ -198,7 +198,7 @@ const SOCIAL_LINKS = [
 ];
 
 const PARTNERS = [
-  { name: "OfficinaDeFi", logo: "/officina-defi-logo.svg" },
+  { id: "officina-defi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
@@ -970,8 +970,8 @@ function Partnership({ lang }) {
           </div>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
             {PARTNERS.map((partner) => (
-              <div key={partner.name} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img src={partner.logo} alt={`${partner.name} logo`} style={{ maxWidth: 170, width: "100%", height: 42, objectFit: "contain" }} />
+              <div key={partner.id} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={partner.logo} alt={partner.alt} style={{ maxWidth: 220, width: "100%", height: 56, objectFit: "contain" }} />
               </div>
             ))}
           </div>
