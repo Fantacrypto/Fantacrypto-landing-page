@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // ─── TRADUZIONI ───────────────────────────────────────────────────────────────
 const T = {
   it: {
-    nav: { howItWorks: "Come funziona", vision: "Vision", partnership: "Partnership", play: "Gioca Ora" },
+    nav: { howItWorks: "Come funziona", vision: "Vision", partnership: "Parner", play: "Gioca Ora" },
     hero: {
       line1: "IL MERCATO È", line2: "IL TUO CAMPO", line3: "DA GIOCO.",
       sub1: "Costruisci la tua squadra di crypto.",
@@ -60,7 +60,7 @@ const T = {
       micro: "👉 Formazione attraverso il gioco.",
     },
     partnership: {
-      label: "Partnership", title: "VUOI DIVENTARE", titleHighlight: "PARTNER?",
+      label: "Parner", title: "VUOI DIVENTARE", titleHighlight: "PARTNER?",
       desc: "Collaborazioni, sponsorizzazioni o integrazioni.\nFantacrypto è una piattaforma in crescita con una community verticale nel mondo crypto.",
       partnersTitle: "Partner attuali",
       micro: "👉 Scrivici e vediamo cosa possiamo costruire insieme.",
@@ -84,7 +84,7 @@ const T = {
       linkItems: [
         { label: "Come funziona", href: "#come-funziona" },
         { label: "Vision", href: "#vision" },
-        { label: "Partnership", href: "#partnership" },
+        { label: "Parner", href: "#partnership" },
         { label: "Contatti", href: "mailto:infofantacrypto@gmail.com" },
       ],
       social: "Social", contact: "Contatti",
@@ -96,7 +96,7 @@ const T = {
     close: "Chiudi menu", open: "Apri menu",
   },
   en: {
-    nav: { howItWorks: "How it works", vision: "Vision", partnership: "Partnership", play: "Play Now" },
+    nav: { howItWorks: "How it works", vision: "Vision", partnership: "Parner", play: "Play Now" },
     hero: {
       line1: "THE MARKET IS", line2: "YOUR PLAYING", line3: "FIELD.",
       sub1: "Build your crypto team.",
@@ -153,7 +153,7 @@ const T = {
       micro: "👉 Learning through gameplay.",
     },
     partnership: {
-      label: "Partnership", title: "WANT TO BECOME", titleHighlight: "A PARTNER?",
+      label: "Parner", title: "WANT TO BECOME", titleHighlight: "A PARTNER?",
       desc: "Collaborations, sponsorships or integrations.\nFantacrypto is a growing platform with a vertical community in the crypto world.",
       partnersTitle: "Current partners",
       micro: "👉 Write to us and let's see what we can build together.",
@@ -177,7 +177,7 @@ const T = {
       linkItems: [
         { label: "How it works", href: "#come-funziona" },
         { label: "Vision", href: "#vision" },
-        { label: "Partnership", href: "#partnership" },
+        { label: "Parner", href: "#partnership" },
         { label: "Contact", href: "mailto:infofantacrypto@gmail.com" },
       ],
       social: "Social", contact: "Contact",
@@ -198,7 +198,7 @@ const SOCIAL_LINKS = [
 ];
 
 const PARTNERS = [
-  { id: "officina-defi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi" },
+  { id: "officina-defi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi", href: "https://www.officinadefi.com/" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
@@ -970,9 +970,31 @@ function Partnership({ lang }) {
           </div>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
             {PARTNERS.map((partner) => (
-              <div key={partner.id} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img src={partner.logo} alt={partner.alt} style={{ maxWidth: 220, width: "100%", height: 56, objectFit: "contain" }} />
-              </div>
+              <a
+                key={partner.id}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={partner.alt}
+                style={{
+                  background: "#0a1f1c",
+                  border: "1px solid #1DB89A33",
+                  borderRadius: 14,
+                  width: "clamp(180px, 42vw, 220px)",
+                  height: "clamp(180px, 42vw, 220px)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  boxSizing: "border-box",
+                  transition: "border-color 0.2s, transform 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#1DB89A"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#1DB89A33"; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                <img src={partner.logo} alt={partner.alt} style={{ width: "70%", maxWidth: 150, maxHeight: 90, objectFit: "contain" }} />
+              </a>
             ))}
           </div>
         </div>
