@@ -198,7 +198,7 @@ const SOCIAL_LINKS = [
 ];
 
 const PARTNERS = [
-  { id: "officina-defi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi", href: "https://www.officinadefi.com/" },
+  { id: "officina-defi", name: "OfficinaDeFi", logo: "/officina-defi-logo.svg", alt: "Officina DeFi", href: "https://www.officinadefi.com/" },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
@@ -969,13 +969,22 @@ function Partnership({ lang }) {
             {t.partnersTitle}
           </div>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
-            {PARTNERS.map((partner) => (
-              <a key={partner.id} href={partner.href} target="_blank" rel="noreferrer" style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, width: 240, height: 240, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "transform 0.2s, border-color 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = "#1DB89A66"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "#1DB89A33"; }}>
-                <img src={partner.logo} alt={partner.alt} style={{ width: 170, height: 170, objectFit: "contain" }} />
-              </a>
-            ))}
+            {PARTNERS.map((partner) => {
+              const partnerCardStyle = { background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, width: 240, height: 240, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", transition: "transform 0.2s, border-color 0.2s" };
+              const partnerLogo = <img src={partner.logo} alt={partner.alt ?? `${partner.name} logo`} style={{ width: 170, height: 170, objectFit: "contain" }} />;
+
+              if (!partner.href) {
+                return <div key={partner.id} style={partnerCardStyle}>{partnerLogo}</div>;
+              }
+
+              return (
+                <a key={partner.id} href={partner.href} target="_blank" rel="noreferrer" style={partnerCardStyle}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = "#1DB89A66"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "#1DB89A33"; }}>
+                  {partnerLogo}
+                </a>
+              );
+            })}
           </div>
         </div>
         <div id="partner-form" style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 16, padding: "48px 40px", maxWidth: 640, margin: "0 auto" }}>
