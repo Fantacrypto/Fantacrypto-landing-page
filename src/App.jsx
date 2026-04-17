@@ -34,7 +34,7 @@ const T = {
       items: [{ label: "Timing" }, { label: "Analisi" }, { label: "Gestione del rischio" }],
       micro: "👉 Se sai leggere il mercato, hai un vantaggio.",
     },
-,    modes: {
+    modes: {
       label: "Modalità di gioco", title: "MODALITÀ", titleHighlight: "COMPETITIVE",
       items: [
         { title: "Leghe private", desc: "Sfida i tuoi amici in una lega personale." },
@@ -62,7 +62,7 @@ const T = {
     partnership: {
       label: "Partnership", title: "VUOI DIVENTARE", titleHighlight: "PARTNER?",
       desc: "Collaborazioni, sponsorizzazioni o integrazioni.\nFantacrypto è una piattaforma in crescita con una community verticale nel mondo crypto.",
-      partnersTitle: "Partner attuali",
+      partnersTitle: "Partner",
       micro: "👉 Scrivici e vediamo cosa possiamo costruire insieme.",
     },
     form: {
@@ -155,7 +155,7 @@ const T = {
     partnership: {
       label: "Partnership", title: "WANT TO BECOME", titleHighlight: "A PARTNER?",
       desc: "Collaborations, sponsorships or integrations.\nFantacrypto is a growing platform with a vertical community in the crypto world.",
-      partnersTitle: "Current partners",
+      partnersTitle: "Partners",
       micro: "👉 Write to us and let's see what we can build together.",
     },
     form: {
@@ -203,6 +203,7 @@ const PARTNERS = [
     logoPng: "/officina-defi-logo.png",
     logoFallback: "/officina-defi-logo.svg",
     alt: "Officina DeFi",
+    href: "https://www.officinadefi.com/",
   },
 ];
 
@@ -212,7 +213,6 @@ function AnimatedBorderBtn({ href, children, size = "large" }) {
   const fs = size === "small" ? 14 : "clamp(16px, 1.5vw, 19px)";
   return (
     <a href={href} style={{ position: "relative", display: "inline-block", textDecoration: "none", borderRadius: 10, padding: 3 }}>
-      {/* Glow esterno */}
       <span aria-hidden="true" style={{
         position: "absolute", inset: -4, borderRadius: 14,
         background: "conic-gradient(from var(--angle), #1DB89A, #5fffda, #fff, #1DB89A, #0D8070, #1DB89A)",
@@ -221,14 +221,12 @@ function AnimatedBorderBtn({ href, children, size = "large" }) {
         opacity: 0.7,
         zIndex: 0,
       }} />
-      {/* Bordo netto */}
       <span aria-hidden="true" style={{
         position: "absolute", inset: 0, borderRadius: 10,
         background: "conic-gradient(from var(--angle), #1DB89A, #5fffda, #fff, #1DB89A, #0D8070, #1DB89A)",
         animation: "spinBorder 2s linear infinite",
         zIndex: 1,
       }} />
-      {/* Inner button */}
       <span style={{
         position: "relative", zIndex: 2,
         display: "block",
@@ -544,7 +542,6 @@ function PlexusCanvas() {
       canvas.height = canvas.offsetHeight;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Aggiorna posizioni
       nodes.forEach(n => {
         n.x += n.vx;
         n.y += n.vy;
@@ -552,7 +549,6 @@ function PlexusCanvas() {
         if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
       });
 
-      // Disegna linee
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -570,7 +566,6 @@ function PlexusCanvas() {
         }
       }
 
-      // Disegna punti
       nodes.forEach(n => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -601,11 +596,7 @@ function RealMarket({ lang }) {
   const t = T[lang].realMarket;
   return (
     <section id="real-market" style={{ padding: "120px 24px", background: "#041410", position: "relative", overflow: "hidden", minHeight: 480 }}>
-
-      {/* Plexus canvas */}
       <PlexusCanvas />
-
-      {/* Glow centrale */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(ellipse 60% 50% at 50% 60%, #1DB89A08 0%, transparent 70%)", pointerEvents: "none" }} aria-hidden="true" />
 
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
@@ -615,7 +606,6 @@ function RealMarket({ lang }) {
         </h2>
         <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 56, lineHeight: 1.7 }}>{t.desc}</p>
 
-        {/* Card fluttuanti sopra il plexus */}
         <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap", marginBottom: 56 }}>
           {t.items.map((item, i) => (
             <div key={i} style={{
@@ -650,6 +640,7 @@ function RealMarket({ lang }) {
     </section>
   );
 }
+
 function Skill({ lang }) {
   const t = T[lang].skill;
 
@@ -657,22 +648,16 @@ function Skill({ lang }) {
     {
       label: t.items[0].label,
       desc: lang === "it" ? "Entra nel momento giusto. Il mercato premia chi sa aspettare." : "Enter at the right moment. The market rewards patience.",
-      span: "col",
-      accent: "#1DB89A",
       icon: <svg width="48" height="48" viewBox="0 0 256 256" fill="none"><path d="M128 72V128L168 152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M104 24H152" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/><circle cx="128" cy="136" r="88" stroke="#1DB89A" strokeWidth="16"/></svg>,
     },
     {
       label: t.items[1].label,
       desc: lang === "it" ? "Leggi i dati, studia i pattern, prendi decisioni migliori." : "Read data, study patterns, make better decisions.",
-      span: "col",
-      accent: "#1DB89A",
       icon: <svg width="48" height="48" viewBox="0 0 256 256" fill="none"><path d="M32 200L96 136L136 176L224 72" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M176 72H224V120" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/></svg>,
     },
     {
       label: t.items[2].label,
       desc: lang === "it" ? "Non puntare tutto su una carta sola. Diversifica, proteggi, vinci." : "Don't put all your chips on one move. Diversify, protect, win.",
-      span: "row",
-      accent: "#1DB89A",
       icon: <svg width="56" height="56" viewBox="0 0 256 256" fill="none"><path d="M40 114.79V56L128 24L216 56V114.79C216 163.36 178.11 208.7 128 224C77.89 208.7 40 163.36 40 114.79Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/><path d="M128 104V136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/><circle cx="128" cy="164" r="10" fill="#1DB89A"/></svg>,
     },
   ];
@@ -680,8 +665,6 @@ function Skill({ lang }) {
   return (
     <section id="skill" style={{ padding: "120px 24px", background: "#041410" }}>
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
-
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: "#1DB89A", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>{t.label}</div>
           <h2 style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: "clamp(36px, 5vw, 72px)", color: "#fff", textTransform: "uppercase", margin: 0, lineHeight: 1.05 }}>
@@ -689,28 +672,19 @@ function Skill({ lang }) {
           </h2>
         </div>
 
-        {/* Bento Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gridTemplateRows: "auto auto",
-          gap: 16,
-        }}>
-          {/* Card 1 — Timing */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "auto auto", gap: 16 }}>
           <div style={{ background: "linear-gradient(135deg, #0d2e2a, #091e1a)", border: "1px solid #1DB89A22", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
             {bentoItems[0].icon}
             <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[0].label}</div>
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[0].desc}</p>
           </div>
 
-          {/* Card 2 — Analysis */}
           <div style={{ background: "linear-gradient(135deg, #112e28, #0a2220)", border: "1px solid #1DB89A33", borderRadius: 20, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 16 }}>
             {bentoItems[1].icon}
             <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 900, fontSize: 22, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em" }}>{bentoItems[1].label}</div>
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#6a9e98", lineHeight: 1.7, margin: 0 }}>{bentoItems[1].desc}</p>
           </div>
 
-          {/* Card 3 — Risk management — full width */}
           <div style={{ gridColumn: "1 / -1", background: "linear-gradient(135deg, #1DB89A18, #0a2220)", border: "1px solid #1DB89A44", borderRadius: 20, padding: "40px 36px", display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
             <div style={{ flexShrink: 0 }}>{bentoItems[2].icon}</div>
             <div style={{ flex: 1, minWidth: 200 }}>
@@ -730,14 +704,12 @@ function Modalita({ lang }) {
   const t = T[lang].modes;
 
   const icons = [
-    // Lock - Private leagues
     <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="40" y="112" width="176" height="128" rx="8" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M88 112V80C88 53.49 106.05 32 128 32C149.95 32 168 53.49 168 80V112" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
       <circle cx="128" cy="168" r="12" fill="#1DB89A"/>
       <path d="M128 180V200" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
     </svg>,
-    // Trophy - Global rankings
     <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M56 40H200V136C200 172.93 167.67 203.2 128 203.2C88.33 203.2 56 172.93 56 136V40Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M56 80H24C24 80 24 136 56 136" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
@@ -745,7 +717,6 @@ function Modalita({ lang }) {
       <path d="M96 224H160" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
       <path d="M128 203.2V224" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round"/>
     </svg>,
-    // Lightning - Timed tournaments
     <svg width="44" height="44" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M144 24L32 144H128L112 232L224 112H128L144 24Z" stroke="#1DB89A" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>,
@@ -796,7 +767,6 @@ function LevelUp({ lang }) {
           {t.title}<br /><span style={{ color: "#1DB89A" }}>{t.titleHighlight}</span>
         </h2>
 
-        {/* Slider */}
         <div style={{ maxWidth: 480, margin: "0 auto 48px", position: "relative", height: 90 }}>
           {t.items.map((item, i) => (
             <div key={i} style={{
@@ -818,7 +788,6 @@ function LevelUp({ lang }) {
           ))}
         </div>
 
-        {/* Dots */}
         <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 48 }}>
           {t.items.map((_, i) => (
             <button key={i} onClick={() => setActive(i)} style={{
@@ -879,7 +848,6 @@ function NoMoney({ lang }) {
         </h2>
         <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, color: "#7ab0aa", marginBottom: 64, lineHeight: 1.7 }}>{t.desc}</p>
 
-        {/* Parola singola animata */}
         <div style={{ height: 100, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{
             fontFamily: "'League Spartan', sans-serif",
@@ -895,8 +863,6 @@ function NoMoney({ lang }) {
             {t.items[current]}
           </div>
         </div>
-
-
       </div>
     </section>
   );
@@ -969,27 +935,64 @@ function Partnership({ lang }) {
           </p>
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: 13, color: "#1DB89A", marginTop: 16, letterSpacing: "0.05em" }}>{t.micro}</p>
         </div>
-        <div style={{ margin: "0 auto 36px", maxWidth: 700 }}>
-          <div style={{ fontFamily: "'League Spartan', sans-serif", fontWeight: 700, fontSize: 13, color: "#1DB89A", letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center", marginBottom: 16 }}>
+
+        {/* ── PARTNER BOX ── */}
+        <div style={{ margin: "0 auto 56px", maxWidth: 700 }}>
+          <div style={{
+            fontFamily: "'Space Mono', monospace",
+            fontSize: 11,
+            color: "#1DB89A",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            textAlign: "center",
+            marginBottom: 24,
+          }}>
             {t.partnersTitle}
           </div>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 16 }}>
             {PARTNERS.map((partner) => (
-              <div key={partner.id} style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 14, padding: "18px 24px", minWidth: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <a
+                key={partner.id}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: "#0a1f1c",
+                  border: "1px solid #1DB89A33",
+                  borderRadius: 14,
+                  width: 160,
+                  height: 160,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  flexShrink: 0,
+                  transition: "border-color 0.3s, box-shadow 0.3s",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = "#1DB89A88";
+                  e.currentTarget.style.boxShadow = "0 0 24px #1DB89A22";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "#1DB89A33";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
                 <img
                   src={partner.logoPng}
                   alt={partner.alt}
                   loading="lazy"
-                  style={{ maxWidth: 220, width: "100%", height: 56, objectFit: "contain" }}
+                  style={{ width: "80%", height: "80%", objectFit: "contain" }}
                   onError={(e) => {
                     if (e.currentTarget.src.includes(partner.logoFallback)) return;
                     e.currentTarget.src = partner.logoFallback;
                   }}
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>
+
         <div id="partner-form" style={{ background: "#0a1f1c", border: "1px solid #1DB89A33", borderRadius: 16, padding: "48px 40px", maxWidth: 640, margin: "0 auto" }}>
           <PartnerFormComponent lang={lang} />
         </div>
