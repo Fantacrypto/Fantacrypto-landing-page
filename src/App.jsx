@@ -34,7 +34,7 @@ const T = {
       items: [{ label: "Timing" }, { label: "Analisi" }, { label: "Gestione del rischio" }],
       micro: "👉 Se sai leggere il mercato, hai un vantaggio.",
     },
-    modes: {
+,    modes: {
       label: "Modalità di gioco", title: "MODALITÀ", titleHighlight: "COMPETITIVE",
       items: [
         { title: "Leghe private", desc: "Sfida i tuoi amici in una lega personale." },
