@@ -207,7 +207,7 @@ const PARTNERS = [
   },
   {
     id: "bluora",
-    logoPng: "/bluora-logo.svg",
+    logoPng: "/bluora-logo.png",
     logoFallback: "/bluora-logo.svg",
     alt: "Bluora.it",
     href: "https://bluora.it/",
