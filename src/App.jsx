@@ -205,6 +205,13 @@ const PARTNERS = [
     alt: "Officina DeFi",
     href: "https://www.officinadefi.com/",
   },
+  {
+    id: "bluora",
+    logoPng: "/bluora-logo.png",
+    logoFallback: "/fc-symbol.png",
+    alt: "Bluora.it",
+    href: "https://bluora.it/",
+  },
 ];
 
 // ─── ANIMATED BORDER BUTTON ───────────────────────────────────────────────────
