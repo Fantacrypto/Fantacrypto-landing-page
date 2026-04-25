@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bluora logo">
+  <rect width="512" height="512" rx="64" fill="transparent"/>
+  <ellipse cx="256" cy="248" rx="176" ry="176" fill="#3763AE"/>
+  <ellipse cx="182" cy="206" rx="44" ry="44" fill="#F7F4F6"/>
+  <ellipse cx="330" cy="206" rx="44" ry="44" fill="#F7F4F6"/>
+  <circle cx="182" cy="206" r="27" fill="#020315"/>
+  <circle cx="330" cy="206" r="27" fill="#020315"/>
+  <path d="M160 246C160 226.118 176.118 210 196 210H316C335.882 210 352 226.118 352 246V300H160V246Z" fill="#F5880A"/>
+  <path d="M256 228C278.4 228 296.8 240 305 258C288.8 264.4 271.8 268 256 268C240.2 268 223.2 264.4 207 258C215.2 240 233.6 228 256 228Z" fill="#445164"/>
+  <path d="M216 278H296C296 292.359 284.359 304 270 304H242C227.641 304 216 292.359 216 278Z" fill="#020315"/>
+  <text x="256" y="360" text-anchor="middle" fill="#3763AE" font-family="Arial, sans-serif" font-size="28" font-weight="700">bluora.it</text>
+</svg>
